@@ -31,7 +31,7 @@ jobs:
         uses: edwardgeorge/jq-action@v1
         id: repos-list
         with:
-          input: ${{ steps.search-repos.outputs.data }}
+          input: ${{ toJSON(steps.search-repos.outputs.data) }}
           script: ".items | .[] | .repository.name"
 
       - name: List repositories
