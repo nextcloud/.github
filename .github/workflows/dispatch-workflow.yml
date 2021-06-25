@@ -59,7 +59,8 @@ jobs:
         with:
           body: Automated update of the ${{ github.event.inputs.name }} workflow from https://github.com/${{ github.repository }}
           branch: feat/workflow-auto-update
-          commit-message: Updating ${{ github.event.inputs.name }} from template
+          commit-message: Updating ${{ github.event.inputs.name }} workflow from template
           path: target
           signoff: true
+          title: Updating ${{ github.event.inputs.name }} workflow from template 
           token: ${{ secrets.WORKFLOW_TOKEN }}
