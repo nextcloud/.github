@@ -55,4 +55,5 @@ jobs:
           branch: feat/workflow-auto-update
           commit-message: Updating ${{ github.event.inputs.name }} from template
           path: target
+          signoff: true
           token: ${{ secrets.WORKFLOW_TOKEN }}
