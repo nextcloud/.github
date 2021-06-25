@@ -1,0 +1,8 @@
+{
+    "name": "Node checkout and build workflow",
+    "description": "Nextcloud node build workflow template.",
+    "iconName": "node",
+    "categories": [
+        "JavaScript"
+    ]
+}
