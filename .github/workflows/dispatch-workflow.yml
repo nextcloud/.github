@@ -22,7 +22,8 @@ jobs:
         id: search-repos
         with:
           route: POST /search/code/
-          q: org%3A${{ github.repository_owner }}+path%3A%2F.github%2Fworkflows+filename%3A${{ github.event.inputs.name }}
+          q: "org:${{ github.repository_owner }} path:/.github/workflows filename:${{ github.event.inputs.name }}"
+          per_page: 100
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
