@@ -35,6 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: repositories
     strategy:
+      fail-fast: false
       matrix:
         repositories: ${{ fromJSON(needs.repositories.outputs.matrix) }}
 
