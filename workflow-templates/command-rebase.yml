@@ -1,0 +1,19 @@
+on:
+  issue_comment:
+    types: [ created ]
+name: Automatic Rebase
+jobs:
+  rebase:
+    name: Rebase
+    # On pull requests and if the comment starts with `/compile`
+    if: github.event.issue.pull_request != '' && startsWith(github.event.comment.body, '/rebase')
+    runs-on: ubuntu-latest
+    steps:
+      -   name: Checkout the latest code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      -   name: Automatic Rebase
+        uses: cirrus-actions/rebase@1.3.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
