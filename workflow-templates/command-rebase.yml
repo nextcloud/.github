@@ -11,7 +11,7 @@ name: Automatic Rebase
 jobs:
   rebase:
     name: Rebase
-    # On pull requests and if the comment starts with `/compile`
+    # On pull requests and if the comment starts with `/rebase`
     if: github.event.issue.pull_request != '' && startsWith(github.event.comment.body, '/rebase')
     runs-on: ubuntu-latest
 
