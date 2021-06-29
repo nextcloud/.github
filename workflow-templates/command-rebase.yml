@@ -3,11 +3,11 @@
 # https://github.com/nextcloud/.github
 # https://docs.github.com/en/actions/learn-github-actions/sharing-workflows-with-your-organization
 
+name: Automatic rebase
+
 on:
   issue_comment:
     types: [ created ]
-
-name: Automatic Rebase
 
 jobs:
   rebase:
