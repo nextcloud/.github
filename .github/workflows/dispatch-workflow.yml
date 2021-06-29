@@ -61,7 +61,7 @@ jobs:
           branch: feat/workflow-auto-update
           commit-message: Updating ${{ github.event.inputs.name }} workflow from template
           committer: Nextcloud bot <bot@nextcloud.com>
-          author: Nextcloud bot
+          author: Nextcloud bot <bot@nextcloud.com>
           path: target
           signoff: true
           title: Updating ${{ github.event.inputs.name }} workflow from template 
