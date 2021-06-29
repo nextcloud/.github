@@ -1,5 +1,5 @@
 {
     "name": "Rebase branch workflow",
     "description": "Rebase branch workflow template.",
-    "iconName": "rebase"
+    "iconName": "command-rebase"
 }
