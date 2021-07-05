@@ -34,3 +34,12 @@ jobs:
         uses: cirrus-actions/rebase@1.5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Add reaction on failure
+        uses: peter-evans/create-or-update-comment@v1
+        if: failure()
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.event.repository.full_name }}
+          comment-id: ${{ github.event.comment.id }}
+          reaction-type: "-1"
