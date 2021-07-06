@@ -1,0 +1,8 @@
+{
+    "name": "Linting php",
+    "description": "Php lint testing suite.",
+    "iconName": "lint-php",
+    "categories": [
+        "PHP"
+    ]
+}
