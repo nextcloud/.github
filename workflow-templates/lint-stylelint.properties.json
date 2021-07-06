@@ -1,0 +1,10 @@
+{
+    "name": "Linting style",
+    "description": "Style linting. Require proper script in package.json",
+    "iconName": "lint-stylelint",
+    "categories": [
+        "CSS",
+        "SCSS",
+        "Sass"
+    ]
+}

@@ -1,0 +1,8 @@
+{
+    "name": "Linting PHP Coding Standards",
+    "description": "PHP Coding Standards linting. Require proper script in composer.json",
+    "iconName": "lint-php",
+    "categories": [
+        "PHP"
+    ]
+}
