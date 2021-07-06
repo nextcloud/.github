@@ -1,0 +1,11 @@
+{
+    "name": "Linting eslint",
+    "description": "Eslint lint testing suite.",
+    "iconName": "lint-eslint",
+    "categories": [
+        "JavaScript",
+        "Vue",
+        "TypeScript",
+        "TSX"
+    ]
+}
