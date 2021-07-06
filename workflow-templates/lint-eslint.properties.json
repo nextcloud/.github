@@ -1,6 +1,6 @@
 {
-    "name": "Linting eslint",
-    "description": "Eslint lint testing suite.",
+    "name": "Linting javascript",
+    "description": "Javascript linting. Require proper script in package.json",
     "iconName": "lint-eslint",
     "categories": [
         "JavaScript",
