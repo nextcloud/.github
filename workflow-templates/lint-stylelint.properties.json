@@ -1,0 +1,10 @@
+{
+    "name": "Linting stylelint",
+    "description": "Stylelint lint testing suite.",
+    "iconName": "lint-stylelint",
+    "categories": [
+        "CSS",
+        "SCSS",
+        "Sass"
+    ]
+}
