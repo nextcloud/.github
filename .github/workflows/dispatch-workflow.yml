@@ -19,10 +19,10 @@ jobs:
       matrix: ${{ steps.search-repos.outputs.matrix }}
 
     steps:
-      # TODO: check for org permissions of actor
-      - name: Check if user has write access
-        if: ${{ github.actor != 'skjnldsv' }}
-        run: exit 1
+      - name: Check actor permission
+        uses: skjnldsv/check-actor-permission@v2
+        with:
+          require: admin
 
       - name: Search repositories using the ${{ github.event.inputs.name }} workflow
         id: search-repos
