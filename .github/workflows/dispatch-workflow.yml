@@ -1,5 +1,6 @@
 # This workflow needs to be run on demand
-# It will search for all repositories containing the provided action and open pull requests
+# It will search for all repositories containing the provided
+# action and open pull requests if necessary.
 
 name: Update workflow from org template
 
@@ -34,6 +35,7 @@ jobs:
   dispatch:
     runs-on: ubuntu-latest
     needs: repositories
+
     strategy:
       fail-fast: false
       matrix:
@@ -58,7 +60,7 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           body: Automated update of the ${{ github.event.inputs.name }} workflow from https://github.com/${{ github.repository }}
-          branch: feat/workflow-auto-update
+          branch: feat/workflow-auto-update-${{ github.event.inputs.name }}
           commit-message: Updating ${{ github.event.inputs.name }} workflow from template
           committer: Nextcloud bot <bot@nextcloud.com>
           author: Nextcloud bot <bot@nextcloud.com>
