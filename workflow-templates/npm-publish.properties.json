@@ -1,0 +1,8 @@
+{
+  "name": "Publish to npm",
+  "description": "Build and publish package to npm on tagged releases.",
+  "iconName": "npm-publish",
+  "categories": [
+    "JavaScript"
+  ]
+}
