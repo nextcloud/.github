@@ -67,4 +67,5 @@ jobs:
           path: target
           signoff: true
           title: Updating ${{ github.event.inputs.name }} workflow from template 
+          labels: dependencies
           token: ${{ secrets.WORKFLOW_TOKEN }}
