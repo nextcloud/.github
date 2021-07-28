@@ -11,10 +11,10 @@ on:
 
 jobs:
   rebase:
-    name: Rebase
+    runs-on: ubuntu-latest
+
     # On pull requests and if the comment starts with `/rebase`
     if: github.event.issue.pull_request != '' && startsWith(github.event.comment.body, '/rebase')
-    runs-on: ubuntu-latest
 
     steps:
       - name: Add reaction on start
