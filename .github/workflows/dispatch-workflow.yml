@@ -68,4 +68,4 @@ jobs:
           signoff: true
           title: Updating ${{ github.event.inputs.name }} workflow from template 
           labels: dependencies
-          token: ${{ secrets.WORKFLOW_TOKEN }}
+          token: ${{ secrets.COMMAND_BOT_PAT }}
