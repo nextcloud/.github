@@ -1,0 +1,5 @@
+{
+    "name": "Build, sign and push to the appstore",
+    "description": "On release, build a npm app, sign it, attach to the release and publish to the appstore.`",
+    "iconName": "appstore-build-publish"
+}
