@@ -68,6 +68,12 @@ jobs:
           php-version: ${{ env.PHP_VERSION }}
           coverage: none
 
+      - name: Install composer dependencies
+        continue-on-error: true
+        run: |
+          cd ${{ env.APP_NAME }}
+          composer install --no-dev
+
       - name: Build ${{ env.APP_NAME }}
         if: ${{ steps.versions.outputs.nodeVersion }}
         run: |
