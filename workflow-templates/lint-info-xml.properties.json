@@ -1,0 +1,8 @@
+{
+    "name": "Linting info.xml",
+    "description": "info.xml app linting based on the app-info template",
+    "iconName": "lint-info-xml",
+    "categories": [
+        "XML"
+    ]
+}
