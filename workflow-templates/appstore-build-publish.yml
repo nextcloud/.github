@@ -23,7 +23,7 @@ jobs:
       - name: Check actor permission
         uses: skjnldsv/check-actor-permission@v2
         with:
-          require: admin
+          require: write
 
       - name: Set app env
         run: |
