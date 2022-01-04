@@ -16,6 +16,7 @@ Your report should include:
 - Reproduction steps
 
 If in scope of the project a member of the security team will confirm the vulnerability, determine its impact, and develop a fix.
+Otherwise the team will contact the maintainer and make sure the issue gets fixed.
 The fix will be applied to the master branch, tested, and packaged in the next security release.
 The vulnerability will be publicly announced after the release. Finally, your name will be added
 to the [hall of fame](https://hackerone.com/nextcloud/thanks) as a thank you from the entire Nextcloud community. Note our
