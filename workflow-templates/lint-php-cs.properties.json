@@ -4,5 +4,9 @@
     "iconName": "lint-php",
     "categories": [
         "PHP"
+    ],
+    "filePatterns": [
+        "^.php-cs-fixer.dist.php$",
+        "^.php_cs.dist$"
     ]
 }

@@ -4,5 +4,8 @@
     "iconName": "lint-info-xml",
     "categories": [
         "XML"
+    ],
+    "filePatterns": [
+        "^appinfo/info.xml$"
     ]
 }

@@ -6,5 +6,8 @@
         "CSS",
         "SCSS",
         "Sass"
+    ],
+    "filePatterns": [
+        "^package.json$"
     ]
 }
