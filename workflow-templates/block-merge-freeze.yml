@@ -9,7 +9,7 @@ on: pull_request
 
 jobs:
   block-merges-during-freeze:
-    name: Block merges during feature freezes
+    name: Block merges during freezes
 
     runs-on: ubuntu-latest
 
