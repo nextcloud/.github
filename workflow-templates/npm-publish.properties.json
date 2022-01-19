@@ -4,5 +4,8 @@
   "iconName": "npm-publish",
   "categories": [
     "JavaScript"
+  ],
+  "filePatterns": [
+      "^package.json$"
   ]
 }

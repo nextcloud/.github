@@ -1,5 +1,8 @@
 {
     "name": "Automated dependabot approve and merge",
     "description": "Automatically approve dependabot pull requests and auto-merge minor and patch updates.",
-    "iconName": "dependabot-approve-merge"
+    "iconName": "dependabot-approve-merge",
+    "filePatterns": [
+        "^.github/dependabot.yml$"
+    ]
 }

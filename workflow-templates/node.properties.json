@@ -4,5 +4,8 @@
     "iconName": "node",
     "categories": [
         "JavaScript"
+    ],
+    "filePatterns": [
+        "^package.json$"
     ]
 }
