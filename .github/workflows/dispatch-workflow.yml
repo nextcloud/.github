@@ -18,6 +18,8 @@ jobs:
 
     outputs:
       matrix: ${{ steps.search-repos.outputs.matrix }}
+      
+    name: repositories search (${{ github.event.inputs.name }})
 
     steps:
       - name: Check actor permission
