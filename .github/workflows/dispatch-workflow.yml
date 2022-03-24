@@ -59,7 +59,7 @@ jobs:
         run: cp ./source/workflow-templates/${{ github.event.inputs.name }} ./target/.github/workflows
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@v4
         with:
           body: Automated update of the ${{ github.event.inputs.name }} workflow from https://github.com/${{ github.repository }}
           branch: feat/workflow-auto-update-${{ github.event.inputs.name }}
