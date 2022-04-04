@@ -1,0 +1,11 @@
+{
+  "name": "PHPUnit pgsql",
+  "description": "Run PHPUnit tests on postgresql database",
+  "iconName": "phpunit",
+  "categories": [
+    "PHP"
+  ],
+  "filePatterns": [
+    "^tests/phpunit.xml$"
+  ]
+}
