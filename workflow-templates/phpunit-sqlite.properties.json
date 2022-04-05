@@ -1,0 +1,11 @@
+{
+  "name": "PHPUnit sqlite",
+  "description": "Run PHPUnit tests on sqlite database",
+  "iconName": "phpunit",
+  "categories": [
+    "PHP"
+  ],
+  "filePatterns": [
+    "^tests/phpunit.xml$"
+  ]
+}

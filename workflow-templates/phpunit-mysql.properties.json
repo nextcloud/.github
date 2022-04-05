@@ -1,0 +1,11 @@
+{
+  "name": "PHPUnit mysql",
+  "description": "Run PHPUnit tests on mysql database",
+  "iconName": "phpunit",
+  "categories": [
+    "PHP"
+  ],
+  "filePatterns": [
+    "^tests/phpunit.xml$"
+  ]
+}

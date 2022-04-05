@@ -1,0 +1,11 @@
+{
+  "name": "PHPUnit oci",
+  "description": "Run PHPUnit tests on oci database",
+  "iconName": "phpunit",
+  "categories": [
+    "PHP"
+  ],
+  "filePatterns": [
+    "^tests/phpunit.xml$"
+  ]
+}
