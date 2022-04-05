@@ -88,15 +88,15 @@ jobs:
         working-directory: apps/${{ env.APP_NAME }}
         run: ./vendor/phpunit/phpunit/phpunit -c ${{ env.PHPUNIT_CONFIG }}
 
-      - name: Check file existence
-        id: check_files
+      - name: Check integration file existence
+        id: check_files_integration
         uses: andstor/file-existence-action@v1
         with:
           files: ${{ env.PHPUNIT_INTEGRATION_CONFIG }}
 
       - name: PHPUnit integration
         # Only run if phpunit integration config file exists
-        if: steps.check_files.outputs.files_exists == 'true'
+        if: steps.check_files_integration.outputs.files_exists == 'true'
         working-directory: apps/${{ env.APP_NAME }}
         run: ./vendor/phpunit/phpunit/phpunit -c ${{ env.PHPUNIT_INTEGRATION_CONFIG }}
 
