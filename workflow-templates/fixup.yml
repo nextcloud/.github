@@ -7,8 +7,13 @@ name: Pull request checks
 
 on: pull_request
 
+permissions:
+  contents: read
+
 jobs:
   commit-message-check:
+    permissions:
+      pull-requests: write
     name: Block fixup and squash commits
 
     runs-on: ubuntu-latest
