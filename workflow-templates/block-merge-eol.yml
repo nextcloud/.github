@@ -7,6 +7,9 @@ name: Pull request checks
 
 on: pull_request
 
+permissions:
+  contents: read
+
 jobs:
   block-merges-eol:
     name: Block merges for EOL branches
@@ -24,7 +27,7 @@ jobs:
           # retrieve version number from branch reference
           server_major=$(echo "${{ github.base_ref }}" | sed -En 's/stable//p')
           echo "server_major=$server_major" >> $GITHUB_ENV
- 
+
       - name: Checking if ${{ env.server_major }} is EOL
         run: |
           php -r 'echo json_encode(require_once "config.php");' | jq --arg version "${{ env.server_major }}" '.stable[$version]["100"].eol' | grep --silent -i 'false'
