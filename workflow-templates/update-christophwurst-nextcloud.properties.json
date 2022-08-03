@@ -1,0 +1,11 @@
+{
+  "name": "Update christophwurst/nextcloud",
+  "description": "Update christophwurst/nextcloud dev dependency",
+  "iconName": "update-christophwurst-nextcloud",
+  "categories": [
+    "PHP"
+  ],
+  "filePatterns": [
+    "^composer.json$"
+  ]
+}
