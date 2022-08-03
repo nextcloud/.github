@@ -9,8 +9,8 @@ on:
   issue_comment:
     types: created
 
-permissions:	
-  contents: read	
+permissions:
+  contents: read
 
 jobs:
   rebase:
