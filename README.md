@@ -5,15 +5,15 @@
 When creating a new workflow on your repository, you will see templates originating from here.
 https://github.com/nextcloud/viewer/actions/new
 
-![image](https://user-images.githubusercontent.com/14975046/123411522-d5a12400-d5b0-11eb-996a-5500d2e3de17.png)
+![image](https://raw.githubusercontent.com/nextcloud/.github/master/screenshots/choose-a-workflows.png)
 
 ## Auto-update repositories
 
 For each template, you can propagate them on all the repos that use it.
 1. Go into https://github.com/nextcloud/.github/actions/workflows/dispatch-workflow.yml
 2. Enter the name of the workflow you want to dispatch
+3. Enter the page you want to execute (100 are done per page, so check the [number of repositories](https://github.com/orgs/nextcloud/repositories), current is 260 so run for page: 1, 2 and 3)
 
-  ![image](https://user-images.githubusercontent.com/14975046/123411671-fc5f5a80-d5b0-11eb-9aa6-d66373a9515f.png)
+  ![image](https://raw.githubusercontent.com/nextcloud/.github/master/screenshots/dispatch-a-workflows.png)
 
-3. Wait for the actions to finish and see the checkout the pull requests
-
+4. Wait for the actions to finish and see the checkout the pull requests
