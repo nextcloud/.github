@@ -11,6 +11,10 @@ on:
         description: "The workflow to update (with .yml)"
         required: true
         default: "node.yml"
+      page:
+        description: "Page of the repository list to check (currently 1-3)"
+        required: true
+        default: "1"
 
 jobs:
   repositories:
@@ -18,8 +22,8 @@ jobs:
 
     outputs:
       matrix: ${{ steps.search-repos.outputs.matrix }}
-      
-    name: repositories search (${{ github.event.inputs.name }})
+
+    name: List repositories (page ${{ github.event.inputs.page }})
 
     steps:
       - name: Check actor permission
@@ -27,11 +31,11 @@ jobs:
         with:
           require: admin
 
-      - name: Search repositories using the ${{ github.event.inputs.name }} workflow
+      - name: Create output matrix
         id: search-repos
         # This is a simple curl to fetch the list of repos containing a file and extracting the repo names
         run: |
-          REPOS=$(curl -H "Accept: application/vnd.github.v3+json" "https://api.github.com/search/code?q=org%3A${{ github.repository_owner }}%20path%3A.github%2Fworkflows%20filename%3A${{ github.event.inputs.name }}&per_page=100" | jq -c '.items | map(.repository.name) | unique')
+          REPOS=$(curl -H "Accept: application/vnd.github.v3+json" "https://api.github.com/orgs/${{ github.repository_owner }}/repos?per_page=100&page=${{ github.event.inputs.page }}" | jq -c 'map(.name)')
           echo "::set-output name=matrix::$REPOS"
 
   dispatch:
@@ -44,21 +48,30 @@ jobs:
         repositories: ${{ fromJSON(needs.repositories.outputs.matrix) }}
 
     steps:
-      - name: Checkout source repository
-        uses: actions/checkout@v3
-        with:
-          path: source
-
       - name: Checkout target repository
         uses: actions/checkout@v3
         with:
           path: target
           repository: ${{ github.repository_owner }}/${{ matrix.repositories }}
 
+      - name: Check ${{ github.event.inputs.name }} file existence
+        id: check_file_existence
+        uses: andstor/file-existence-action@v1
+        with:
+          files: target/.github/workflows/${{ github.event.inputs.name }}
+
+      - name: Checkout source repository
+        if: steps.check_file_existence.outputs.files_exists == 'true'
+        uses: actions/checkout@v3
+        with:
+          path: source
+
       - name: Copy workflow
+        if: steps.check_file_existence.outputs.files_exists == 'true'
         run: cp ./source/workflow-templates/${{ github.event.inputs.name }} ./target/.github/workflows
 
       - name: Create Pull Request
+        if: steps.check_file_existence.outputs.files_exists == 'true'
         uses: peter-evans/create-pull-request@v4
         with:
           body: Automated update of the ${{ github.event.inputs.name }} workflow from https://github.com/${{ github.repository }}
@@ -68,6 +81,6 @@ jobs:
           author: Nextcloud bot <bot@nextcloud.com>
           path: target
           signoff: true
-          title: Updating ${{ github.event.inputs.name }} workflow from template 
+          title: Updating ${{ github.event.inputs.name }} workflow from template
           labels: dependencies
           token: ${{ secrets.TEMPLATE_WORKFLOW_DISPATCH_PAT }}
