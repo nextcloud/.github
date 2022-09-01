@@ -94,23 +94,28 @@ jobs:
         run: |
           npm ci
           npm run build --if-present
+      
+      - name: Rebase
+        if: ${{ contains(needs.init.outputs.arg1, 'rebase') }}
+        run: |
+          git rebase master
 
       - name: Commit and push default
-        if: ${{ needs.init.outputs.arg1 != 'fixup' && needs.init.outputs.arg1 != 'amend' }}
+        if: ${{ !contains(needs.init.outputs.arg1, 'fixup') && !contains(needs.init.outputs.arg1, 'amend') }}
         run: |
           git add ${{ github.workspace }}${{ needs.init.outputs.git_path }}
           git commit --signoff -m 'chore(assets): Recompile assets'
           git push origin ${{ needs.init.outputs.head_ref }}
-
+ 
       - name: Commit and push fixup
-        if: ${{ needs.init.outputs.arg1 == 'fixup' }}
+        if: ${{ contains(needs.init.outputs.arg1, 'fixup') }}
         run: |
           git add ${{ github.workspace }}${{ needs.init.outputs.git_path }}
           git commit --fixup=HEAD --signoff
           git push origin ${{ needs.init.outputs.head_ref }}
 
       - name: Commit and push amend
-        if: ${{ needs.init.outputs.arg1 == 'amend' }}
+        if: ${{ contains(needs.init.outputs.arg1, 'amend') }}
         run: |
           git add ${{ github.workspace }}${{ needs.init.outputs.git_path }}
           git commit --amend --no-edit --signoff
