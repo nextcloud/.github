@@ -7,6 +7,18 @@ name: PHPUnit
 
 on:
   pull_request:
+    paths:
+      - '.github/workflows/**'
+      - 'appinfo/**'
+      - 'lib/**'
+      - 'templates/**'
+      - 'tests/**'
+      - 'vendor/**'
+      - 'vendor-bin/**'
+      - '.php-cs-fixer.dist.php'
+      - 'composer.json'
+      - 'composer.lock'
+
   push:
     branches:
       - main
@@ -70,7 +82,15 @@ jobs:
           extensions: mbstring, iconv, fileinfo, intl, mysql, pdo_mysql
           coverage: none
 
+      - name: Check composer file existence
+        id: check_composer
+        uses: andstor/file-existence-action@v1
+        with:
+          files: apps/${{ env.APP_NAME }}/composer.json
+
       - name: Set up PHPUnit
+        # Only run if phpunit config file exists
+        if: steps.check_composer.outputs.files_exists == 'true'
         working-directory: apps/${{ env.APP_NAME }}
         run: composer i
 
