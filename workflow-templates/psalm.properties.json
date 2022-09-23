@@ -1,0 +1,11 @@
+{
+  "name": "Psalm static analysis",
+  "description": "Run Psalm static analysis",
+  "iconName": "psalm",
+  "categories": [
+    "PHP"
+  ],
+  "filePatterns": [
+    "^composer.json$"
+  ]
+}
