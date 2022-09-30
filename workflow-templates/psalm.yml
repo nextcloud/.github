@@ -12,7 +12,7 @@ jobs:
   static-analysis:
     runs-on: ubuntu-latest
 
-    name: Nextcloud ${{ matrix.ocp-version }}
+    name: Nextcloud
     steps:
       - name: Checkout
         uses: actions/checkout@v3
