@@ -11,10 +11,6 @@ on:
         description: "The workflow to update (with .yml)"
         required: true
         default: "node.yml"
-      page:
-        description: "Page of the repository list to check (currently 1-3)"
-        required: true
-        default: "1"
 
 jobs:
   repositories:
@@ -23,7 +19,7 @@ jobs:
     outputs:
       matrix: ${{ steps.search-repos.outputs.matrix }}
 
-    name: List repositories (page ${{ github.event.inputs.page }})
+    name: Get repositories for ${{ github.event.inputs.name }}
 
     steps:
       - name: Check actor permission
@@ -33,9 +29,44 @@ jobs:
 
       - name: Create output matrix
         id: search-repos
-        # This is a simple curl to fetch the list of repos containing a file and extracting the repo names
+        # This is a small bash script to fetch the list of repos containing a file and extracting the repo names
         run: |
-          REPOS=$(curl -H "Accept: application/vnd.github.v3+json" "https://api.github.com/orgs/${{ github.repository_owner }}/repos?per_page=100&page=${{ github.event.inputs.page }}" | jq -c 'map(.name)')
+          PAGE=1
+          REPOS=""
+          LAST_CALL=-1
+
+          until [ $LAST_CALL -eq 0 ]
+          do
+            response=$(curl --silent "https://api.github.com/search/code?q=org:${{ github.repository_owner }}+path:.github/workflows+filename:${{ github.event.inputs.name }}&page=$PAGE" | jq -c)
+            has_message=$(echo $response | jq -r '.message?')
+
+            # If Github returns an error, display it.
+            # e.g "Bad credentials"
+            if [ "$has_message" != "null" ]; then
+                echo $has_message
+                exit 1
+            fi
+
+            # If the curl is empty, the network is most likely down.
+            if [[ ! "$response" ]]; then
+                echo "Github unreachable"
+                exit 1
+            fi
+
+            # Process results
+            SEARCH=$(echo $response | jq -c '.items | map(.repository.name) | unique')
+            echo "Results for page $PAGE"
+            echo $SEARCH
+
+            # Append 
+            REPOS=$(echo "$REPOS $SEARCH" | jq -cs 'add | unique')
+            # Increment results
+            PAGE=$(($PAGE + 1))
+            LAST_CALL=$(echo $SEARCH | jq 'length')
+          done
+          echo $REPOS
+
+          # Set output matrix
           echo "matrix=$REPOS" >> $GITHUB_OUTPUT
 
   dispatch:
@@ -46,6 +77,8 @@ jobs:
       fail-fast: false
       matrix:
         repositories: ${{ fromJSON(needs.repositories.outputs.matrix) }}
+
+    name: Update ${{ matrix.repositories }}
 
     steps:
       - name: Checkout target repository
