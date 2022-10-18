@@ -37,7 +37,7 @@ jobs:
       # Init path depending on which command is run
       - name: Init path
         id: git-path
-        run: |    
+        run: |
           if ${{ startsWith(steps.command.outputs.arg1, '/') }}; then
             echo "::set-output name=path::${{ github.workspace }}${{steps.command.outputs.arg1}}"
           else
@@ -47,7 +47,7 @@ jobs:
       - name: Init branch
         uses: xt0rted/pull-request-comment-branch@v1
         id: comment-branch
-    
+
   process:
     runs-on: ubuntu-latest
     needs: init
