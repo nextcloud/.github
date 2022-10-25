@@ -56,7 +56,7 @@ jobs:
 
       - name: Check ${{ github.event.inputs.name }} file existence
         id: check_file_existence
-        uses: andstor/file-existence-action@v1
+        uses: andstor/file-existence-action@v2
         with:
           files: target/.github/workflows/${{ github.event.inputs.name }}
 
