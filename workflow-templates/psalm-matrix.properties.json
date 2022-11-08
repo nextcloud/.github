@@ -1,0 +1,11 @@
+{
+  "name": "Psalm static analysis (Multiple versions)",
+  "description": "Run Psalm static analysis against multiple Nextcloud versions",
+  "iconName": "psalm",
+  "categories": [
+    "PHP"
+  ],
+  "filePatterns": [
+    "^composer.json$"
+  ]
+}
