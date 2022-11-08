@@ -1,0 +1,11 @@
+{
+  "name": "Update nextcloud/ocp (Multiple versions)",
+  "description": "Update nextcloud/ocp dev dependency with support for multiple Nextcloud versions",
+  "iconName": "update-nextcloud-ocp",
+  "categories": [
+    "PHP"
+  ],
+  "filePatterns": [
+    "^composer.json$"
+  ]
+}
