@@ -36,7 +36,7 @@ jobs:
         # This is a simple curl to fetch the list of repos containing a file and extracting the repo names
         run: |
           REPOS=$(curl -H "Accept: application/vnd.github.v3+json" "https://api.github.com/orgs/${{ github.repository_owner }}/repos?per_page=100&page=${{ github.event.inputs.page }}" | jq -c 'map(.name)')
-          echo "::set-output name=matrix::$REPOS"
+          echo "matrix=$REPOS" >> $GITHUB_OUTPUT
 
   dispatch:
     runs-on: ubuntu-latest

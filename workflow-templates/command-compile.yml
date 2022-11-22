@@ -39,9 +39,9 @@ jobs:
         id: git-path
         run: |
           if ${{ startsWith(steps.command.outputs.arg1, '/') }}; then
-            echo "::set-output name=path::${{ github.workspace }}${{steps.command.outputs.arg1}}"
+            echo "path=${{ github.workspace }}${{steps.command.outputs.arg1}}" >> $GITHUB_OUTPUT
           else
-            echo "::set-output name=path::${{ github.workspace }}${{steps.command.outputs.arg2}}"
+            echo "path=${{ github.workspace }}${{steps.command.outputs.arg2}}" >> $GITHUB_OUTPUT
           fi
 
       - name: Init branch
