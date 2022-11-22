@@ -18,12 +18,12 @@ jobs:
 
     steps:
       - name: Check actor permission
-        uses: skjnldsv/check-actor-permission@v2
+        uses: skjnldsv/check-actor-permission@v2.1
         with:
           require: write
 
       - name: Add reaction on start
-        uses: peter-evans/create-or-update-comment@v2
+        uses: peter-evans/create-or-update-comment@v2.1
         with:
           token: ${{ secrets.COMMAND_BOT_PAT }}
           repository: ${{ github.event.repository.full_name }}
@@ -39,9 +39,9 @@ jobs:
         id: git-path
         run: |
           if ${{ startsWith(steps.command.outputs.arg1, '/') }}; then
-            echo "::set-output name=path::${{ github.workspace }}${{steps.command.outputs.arg1}}"
+            echo "path=${{ github.workspace }}${{steps.command.outputs.arg1}}" >> $GITHUB_OUTPUT
           else
-            echo "::set-output name=path::${{ github.workspace }}${{steps.command.outputs.arg2}}"
+            echo "path=${{ github.workspace }}${{steps.command.outputs.arg2}}" >> $GITHUB_OUTPUT
           fi
 
       - name: Init branch
@@ -108,7 +108,7 @@ jobs:
           git push --force origin ${{ needs.init.outputs.head_ref }}
 
       - name: Add reaction on failure
-        uses: peter-evans/create-or-update-comment@v2
+        uses: peter-evans/create-or-update-comment@v2.1
         if: failure()
         with:
           token: ${{ secrets.COMMAND_BOT_PAT }}
