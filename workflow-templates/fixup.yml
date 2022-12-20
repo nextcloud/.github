@@ -5,7 +5,9 @@
 
 name: Pull request checks
 
-on: pull_request
+on:
+  pull_request:
+    types: [opened, ready_for_review, reopened]
 
 permissions:
   contents: read
@@ -16,6 +18,8 @@ concurrency:
 
 jobs:
   commit-message-check:
+    if: github.event.pull_request.draft == false
+
     permissions:
       pull-requests: write
     name: Block fixup and squash commits
