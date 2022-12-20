@@ -10,10 +10,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3
 
       - name: Github action templates lint
-        uses: ibiqlik/action-yamllint@v3
+        uses: ibiqlik/action-yamllint@2576378a8e339169678f9939646ee3ee325e845c # v3
         with:
           file_or_dir: workflow-templates
           config_data: |

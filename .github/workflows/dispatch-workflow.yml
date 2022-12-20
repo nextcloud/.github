@@ -27,7 +27,7 @@ jobs:
 
     steps:
       - name: Check actor permission
-        uses: skjnldsv/check-actor-permission@v2.1
+        uses: skjnldsv/check-actor-permission@e591dbfe838300c007028e1219ca82cc26e8d7c5 # v2.1
         with:
           require: admin
 
@@ -49,20 +49,20 @@ jobs:
 
     steps:
       - name: Checkout target repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3
         with:
           path: target
           repository: ${{ github.repository_owner }}/${{ matrix.repositories }}
 
       - name: Check ${{ github.event.inputs.name }} file existence
         id: check_file_existence
-        uses: andstor/file-existence-action@v2
+        uses: andstor/file-existence-action@20b4d2e596410855db8f9ca21e96fbe18e12930b # v2
         with:
           files: target/.github/workflows/${{ github.event.inputs.name }}
 
       - name: Checkout source repository
         if: steps.check_file_existence.outputs.files_exists == 'true'
-        uses: actions/checkout@v3
+        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3
         with:
           path: source
 
@@ -72,7 +72,7 @@ jobs:
 
       - name: Create Pull Request
         if: steps.check_file_existence.outputs.files_exists == 'true'
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@2b011faafdcbc9ceb11414d64d0573f37c774b04 # v4
         with:
           body: Automated update of the ${{ github.event.inputs.name }} workflow from https://github.com/${{ github.repository }}
           branch: feat/workflow-auto-update-${{ github.event.inputs.name }}
