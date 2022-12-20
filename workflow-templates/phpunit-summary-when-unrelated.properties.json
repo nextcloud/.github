@@ -1,0 +1,11 @@
+{
+  "name": "PHPUnit summary when unrelated",
+  "description": "Marks PHPUnit tests as passed when no PHP related files where changed",
+  "iconName": "phpunit",
+  "categories": [
+    "PHP"
+  ],
+  "filePatterns": [
+    "^tests/phpunit.xml$"
+  ]
+}
