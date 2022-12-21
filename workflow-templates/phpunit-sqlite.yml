@@ -18,8 +18,6 @@ on:
       - '.php-cs-fixer.dist.php'
       - 'composer.json'
       - 'composer.lock'
-
-  push:
     branches:
       - main
       - master

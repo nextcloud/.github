@@ -17,7 +17,6 @@ on:
       - '**.js'
       - '**.ts'
       - '**.vue'
-  push:
     branches:
       - main
       - master
