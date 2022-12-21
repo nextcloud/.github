@@ -7,11 +7,8 @@ name: Lint
 
 on:
   pull_request:
-  push:
-    branches:
-      - main
-      - master
-      - stable*
+    paths:
+      - appinfo/info.xml
 
 permissions:
   contents: read
