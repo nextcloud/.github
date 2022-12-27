@@ -52,7 +52,7 @@ jobs:
         uses: peter-evans/create-pull-request@18f7dc018cc2cd597073088f7c7591b9d1c02672 # v3
         with:
           token: ${{ secrets.COMMAND_BOT_PAT }}
-          commit-message: Update nextcloud/ocp package
+          commit-message: "chore(dev-deps): Bump nextcloud/ocp package"
           committer: GitHub <noreply@github.com>
           author: nextcloud-command <nextcloud-command@users.noreply.github.com>
           signoff: true
