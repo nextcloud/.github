@@ -45,6 +45,7 @@ jobs:
         run: |
           git clean -f 3rdparty
           git clean -f vendor
+          git clean -f vendor-bin
           git checkout 3rdparty vendor vendor-bin
         continue-on-error: true
 
