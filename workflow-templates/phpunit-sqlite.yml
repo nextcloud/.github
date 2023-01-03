@@ -71,6 +71,8 @@ jobs:
           tools: phpunit
           extensions: mbstring, iconv, fileinfo, intl, sqlite, pdo_sqlite
           coverage: none
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Check composer file existence
         id: check_composer

@@ -70,6 +70,8 @@ jobs:
         with:
           php-version: ${{ env.PHP_VERSION }}
           coverage: none
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Check composer.json
         id: check_composer
