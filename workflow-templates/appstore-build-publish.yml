@@ -102,8 +102,8 @@ jobs:
       - name: Install Krankerl
         if: steps.krankerl.outputs.files_exists == 'true'
         run: |
-          wget https://github.com/ChristophWurst/krankerl/releases/download/v0.13.0/krankerl_0.13.0_amd64.deb
-          sudo dpkg -i krankerl_0.13.0_amd64.deb
+          wget https://github.com/ChristophWurst/krankerl/releases/download/v0.14.0/krankerl_0.14.0_amd64.deb
+          sudo dpkg -i krankerl_0.14.0_amd64.deb
 
       - name: Package ${{ env.APP_NAME }} ${{ env.APP_VERSION }} with krankerl
         if: steps.krankerl.outputs.files_exists == 'true'
