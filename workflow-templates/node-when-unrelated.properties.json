@@ -1,0 +1,11 @@
+{
+    "name": "Node checkout and build workflow when unrelated",
+    "description": "Marks node as passed when no JavaScript related files were changed",
+    "iconName": "node",
+    "categories": [
+        "JavaScript"
+    ],
+    "filePatterns": [
+        "^package.json$"
+    ]
+}
