@@ -1,0 +1,14 @@
+{
+    "name": "Linting JavaScript when unrelated",
+    "description": "Marks eslint as passed when no JavaScript related files were changed",
+    "iconName": "lint-eslint",
+    "categories": [
+        "JavaScript",
+        "Vue",
+        "TypeScript",
+        "TSX"
+    ],
+    "filePatterns": [
+        "^package.json$"
+    ]
+}
