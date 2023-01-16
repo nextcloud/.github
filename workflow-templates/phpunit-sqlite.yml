@@ -119,6 +119,13 @@ jobs:
         working-directory: apps/${{ env.APP_NAME }}
         run: composer run test:integration
 
+      - name: Skipped
+        # Fail the action when neither unit nor integration tests ran
+        if: steps.check_phpunit.outcome == 'failure' && steps.check_integration.outcome == 'failure'
+        run: |
+          echo 'Neither PHPUnit nor PHPUnit integration tests are specified in composer.json scripts'
+          exit 1
+
   summary:
     permissions:
       contents: none
