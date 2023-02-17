@@ -38,6 +38,7 @@ jobs:
         with:
           php-version: ${{ matrix.php-versions }}
           coverage: none
+          ini-file: development
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
