@@ -42,7 +42,6 @@ jobs:
 
       - name: Composer update nextcloud/ocp
         run: composer require --dev nextcloud/ocp:dev-${{ matrix.target }}
-        continue-on-error: true
 
       - name: Reset checkout 3rdparty
         run: |
