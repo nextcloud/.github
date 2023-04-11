@@ -34,10 +34,4 @@ jobs:
 
       - name: Checking if ${{ env.server_major }} is EOL
         run: |
-          if php -r 'echo json_encode(require_once "config.php");' | jq --arg version "${{ env.server_major }}" '.stable[$version]["100"].eol' | grep --silent -i 'false'; then
-            exit 0
-          fi
-
-          if ! php -r 'echo json_encode(require_once "config.php");' | jq --arg version "${{ env.server_major }}" '.beta[$version]["100"].eol' | grep --silent -i 'false'; then
-            exit 1
-          fi
+          php -r 'echo json_encode(require_once "config.php");' | jq --arg version "${{ env.server_major }}" '.stable[$version]["100"].eol // .beta[$version]["100"].eol' | grep --silent -i 'false'
