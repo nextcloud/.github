@@ -34,7 +34,6 @@ jobs:
 
       - name: Install dependencies & fix npm audit
         run: |
-          npm ci
           npm audit fix
 
       - name: Create Pull Request
