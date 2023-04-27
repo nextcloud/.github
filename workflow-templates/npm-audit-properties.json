@@ -1,0 +1,11 @@
+{
+    "name": "npm audit fix",
+    "description": "Fixes npm audit",
+    "iconName": "npm-audit",
+    "categories": [
+      "JavaScript"
+    ],
+    "filePatterns": [
+      "^package.json$"
+    ]
+  }
