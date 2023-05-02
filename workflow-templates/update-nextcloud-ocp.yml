@@ -40,7 +40,12 @@ jobs:
         run: composer install
 
       - name: Composer update nextcloud/ocp
+        if: matrix.branches != 'main'
         run: composer require --dev nextcloud/ocp:dev-${{ matrix.branches }}
+
+      - name: Composer update nextcloud/ocp
+        if: matrix.branches == 'main'
+        run: composer require --dev nextcloud/ocp:dev-master
 
       - name: Reset checkout 3rdparty
         run: |
