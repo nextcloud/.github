@@ -1,7 +1,7 @@
 {
     "name": "npm audit fix",
     "description": "Fixes npm audit",
-    "iconName": "npm-audit",
+    "iconName": "npm-audit-fix",
     "categories": [
       "JavaScript"
     ],
