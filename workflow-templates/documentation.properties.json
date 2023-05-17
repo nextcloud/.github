@@ -1,0 +1,5 @@
+{
+    "name": "Build and deploy documentation",
+    "description": "Build the documentation with npm and deploy to the gh-pages branch on releases. Mostly used for typescript libraries.",
+    "iconName": "documentation"
+}
