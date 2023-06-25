@@ -1,0 +1,16 @@
+{
+    "name": "Node testing workflow",
+    "description": "Setup node and npm, install dependencies, build test and send coverage to codecov if enabled.",
+    "iconName": "node-test",
+    "categories": [
+        "JavaScript",
+        "codecov",
+        "node",
+        "npm",
+        "test",
+        "coverage"
+    ],
+    "filePatterns": [
+        "^package.json$"
+    ]
+}
