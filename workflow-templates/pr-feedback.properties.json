@@ -1,0 +1,5 @@
+{
+    "name": "Ask for feedback on PR review",
+    "description": "Add a comment 14 days after a PR was created, asking for feedback on how the review process went.",
+    "iconName": "pr-feedback.svg"
+}
