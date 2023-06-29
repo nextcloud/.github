@@ -94,6 +94,9 @@ jobs:
         with:
           record: true
           parallel: true
+          # cypress run type
+          component: ${{ matrix.containers == 'component' }}
+          group: Run ${{ matrix.containers == 'component' && 'component' || 'E2E' }}
           # cypress env
           ci-build-id: ${{ github.sha }}-${{ github.run_number }}
           tag: ${{ github.event_name }}
