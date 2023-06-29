@@ -1,0 +1,10 @@
+{
+    "name": "Cypress testing",
+    "description": "Default cypress workflow. It will setup composer if required, setup node, install dependencies, run cypress and upload artifacts. Feel free to adjust the amount of containers depending on how much tests you have.",
+    "iconName": "cypress",
+    "filePatterns": [
+        "^cypress.config.js$",
+        "^cypress.config.mjs$",
+        "^cypress.config.ts$"
+    ]
+}
