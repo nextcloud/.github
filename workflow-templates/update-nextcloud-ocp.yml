@@ -37,16 +37,40 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Read codeowners
+        id: codeowners
+        run: |
+          grep '/appinfo/info.xml' .github/CODEOWNERS | awk '{ print "codeowners="$2 }' >> $GITHUB_OUTPUT
+        continue-on-error: true
+
       - name: Composer install
         run: composer install
 
       - name: Composer update nextcloud/ocp
+        id: update_branch
         if: matrix.branches != 'main'
         run: composer require --dev nextcloud/ocp:dev-${{ matrix.branches }}
 
+      - name: Raise on issue on failure
+        uses: dacbd/create-issue-action@ba4d1c45cccf9c483f2720cefb40e437f0ee6f7d # v1.2.1
+        if: ${{ failure() && steps.update_branch.conclusion == 'failure' }}
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: Failed to update nextcloud/ocp package on branch ${{ matrix.branches }}
+          body: Please check the output of the GitHub action and manually resolve the issues<br>${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}<br>${{ steps.codeowners.outputs.codeowners }}
+
       - name: Composer update nextcloud/ocp
+        id: update_main
         if: matrix.branches == 'main'
         run: composer require --dev nextcloud/ocp:dev-master
+
+      - name: Raise on issue on failure
+        uses: dacbd/create-issue-action@ba4d1c45cccf9c483f2720cefb40e437f0ee6f7d # v1.2.1
+        if: ${{ failure() && steps.update_main.conclusion == 'failure' }}
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: Failed to update nextcloud/ocp package on branch ${{ matrix.branches }}
+          body: Please check the output of the GitHub action and manually resolve the issues<br>${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}<br>${{ steps.codeowners.outputs.codeowners }}
 
       - name: Reset checkout 3rdparty
         run: |
