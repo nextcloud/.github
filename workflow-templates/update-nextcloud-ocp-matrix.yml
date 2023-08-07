@@ -41,7 +41,7 @@ jobs:
       - name: Read codeowners
         id: codeowners
         run: |
-          grep '/appinfo/info.xml' .github/CODEOWNERS | awk '{ print "codeowners="$2 }' >> $GITHUB_OUTPUT
+          grep '/appinfo/info.xml' .github/CODEOWNERS | cut -f 2- -d ' ' | xargs | awk '{ print "codeowners="$0 }' >> $GITHUB_OUTPUT
         continue-on-error: true
 
       - name: Composer install
