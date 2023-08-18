@@ -35,7 +35,7 @@ jobs:
           fallbackNpm: '^9'
 
       - name: Set up node ${{ steps.versions.outputs.nodeVersion }}
-        uses: actions/setup-node@bea5baf987ba7aa777a8a0b4ace377a21c45c381 # v3
+        uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d # v3
         with:
           node-version: ${{ steps.versions.outputs.nodeVersion }}
 
@@ -55,7 +55,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Setup Github Package Registry
-        uses: actions/setup-node@bea5baf987ba7aa777a8a0b4ace377a21c45c381 # v3
+        uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d # v3
         with:
           registry-url: 'https://npm.pkg.github.com'
 
