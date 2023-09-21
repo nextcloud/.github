@@ -1,6 +1,3 @@
-## Nextcloud Conference 2023: September 16-17, Berlin, Germany
-Hi all! You're invited to our yearly contributor conference in Berlin! A 2 day program with talks & workshops, plus a week of coding. Learn, grow, contribute and have fun. See [our website](https://nextcloud.com/conf) for more information. Attendance is free!
-
 # Nextcloud
 **A safe home for all your data.**
 
@@ -37,4 +34,4 @@ You can also [get support for Nextcloud](https://nextcloud.com/support)!
 
 ## Join the team 👪
 
-There are many ways to contribute, of which development is only one! Find out [how to get involved](https://nextcloud.com/contribute/), including as a translator, designer, tester, helping others, and much more! 😍
+There are many ways to contribute, of which development is only one! Find out [how to get involved](https://nextcloud.com/contribute/), including as a [translator](https://help.nextcloud.com/t/translation-knowledge-valid-for-the-entire-nextcloud-project-wiki/51550), designer, tester, helping others, and much more! 😍
