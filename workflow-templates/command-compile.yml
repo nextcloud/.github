@@ -54,7 +54,7 @@ jobs:
 
     steps:
       - name: Restore cached git repository
-        uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
+        uses: buildjet/cache@e376f15c6ec6dc595375c78633174c7e5f92dc0e # v3
         with:
           path: .git
           key: git-repo
