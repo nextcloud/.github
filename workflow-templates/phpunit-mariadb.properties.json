@@ -1,6 +1,6 @@
 {
-  "name": "PHPUnit MySQL",
-  "description": "Run PHPUnit tests on MySQL database",
+  "name": "PHPUnit MariaDB",
+  "description": "Run PHPUnit tests on MariaDB database",
   "iconName": "phpunit",
   "categories": [
     "PHP"
