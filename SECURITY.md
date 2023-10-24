@@ -32,7 +32,11 @@ Your report should include:
 You should receive an initial acknowledgement within 24 hours in most cases.
 
 A member of the security team will confirm the vulnerability, determine its impact, follow-up with any questions, 
-and coordinate the fix and publication.
+and coordinate the fix and publication. 
+
+If the vulnerability involves an app that is not formally maintained by Nextcloud (i.e. hosted by the 
+Nextcloud project but community maintained), the security team will contact the current maintainer 
+and help make sure the issue gets fixed.
 
 The fix will be applied to all applicable and still supported stable branches, tested, and packaged in the next security release.
 The vulnerability will be publicly announced after the release. Finally, your name will be added
