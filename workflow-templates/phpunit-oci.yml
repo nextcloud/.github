@@ -5,13 +5,7 @@
 
 name: PHPUnit OCI
 
-on:
-  pull_request:
-  push:
-    branches:
-      - main
-      - master
-      - stable*
+on: pull_request
 
 permissions:
   contents: read
@@ -53,7 +47,7 @@ jobs:
 
     strategy:
       matrix:
-        php-versions: ['8.0']
+        php-versions: ['8.2']
         server-versions: ['master']
 
     services:
