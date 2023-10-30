@@ -1,12 +1,6 @@
 name: Cypress
 
-on:
-  pull_request:
-  push:
-    branches:
-      - main
-      - master
-      - stable*
+on: pull_request
 
 env:
   # Adjust APP_NAME if your repository name is different
