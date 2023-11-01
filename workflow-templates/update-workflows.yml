@@ -18,8 +18,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-       branches: ["main", "stable3.2"]
-       #branches: ["main", "master", "stable27", "stable26", "stable25"]
+       branches: ["main", "master", "stable27", "stable26", "stable25"]
 
     steps:
       - name: Checkout repository
