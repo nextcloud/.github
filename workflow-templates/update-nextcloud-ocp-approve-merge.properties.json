@@ -1,0 +1,11 @@
+{
+  "name": "Auto approve and merge of nextcloud/ocp updates",
+  "description": "Auto approve and merge of nextcloud/ocp dev dependency updates",
+  "iconName": "update-nextcloud-ocp",
+  "categories": [
+    "PHP"
+  ],
+  "filePatterns": [
+    "^composer.json$"
+  ]
+}
