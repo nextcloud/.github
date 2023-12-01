@@ -17,3 +17,35 @@ For each template, you can propagate them on all the repos that use it.
   ![image](https://raw.githubusercontent.com/nextcloud/.github/master/screenshots/dispatch-a-workflow.png)
 
 4. Wait for the actions to finish and see the checkout the pull requests
+
+## Update workflows with a script
+
+You can also run the following shell script on your machine to update all workflows of an app. It should be run inside the cloned repository of an app and requires rsync to be installed.
+
+⚠️ Do not forget to check the diff for unwanted changes before committing, especially when updating the workflows on stable branches!
+
+```sh
+#!/bin/sh
+
+# Update GitHub workflows from the Nextcloud template repository.
+# This script is meant to be run from the root of the repository.
+
+# Sanity check
+[ ! -d ./.github/workflows/ ] && echo "Error: .github/workflows does not exist" && exit 1
+
+# Clone template repository
+temp="$(mktemp -d)"
+git clone --depth=1 https://github.com/nextcloud/.github.git "$temp"
+
+# Update workflows
+rsync -vr \
+    --existing \
+    --include='*/' \
+    --include='*.yml' \
+    --exclude='*' \
+    "$temp/workflow-templates/" \
+    ./.github/workflows/
+
+# Cleanup
+rm -rf "$temp"
+```
