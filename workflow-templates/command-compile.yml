@@ -114,6 +114,8 @@ jobs:
         run: |
           git add ${{ github.workspace }}${{ needs.init.outputs.git_path }}
           git commit --amend --no-edit --signoff
+          # Remove any [skip ci] from the amended commit
+          git commit --amend -m "$(git log -1 --format='%B' | sed '/\[skip ci\]/d')"
           git push --force origin ${{ needs.init.outputs.head_ref }}
 
       - name: Add reaction on failure
