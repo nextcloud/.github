@@ -15,6 +15,7 @@ jobs:
       arg1: ${{ steps.command.outputs.arg1 }}
       arg2: ${{ steps.command.outputs.arg2 }}
       head_ref: ${{ steps.comment-branch.outputs.head_ref }}
+      base_ref: ${{ steps.comment-branch.outputs.base_ref }}
 
     steps:
       - name: Check actor permission
@@ -76,7 +77,7 @@ jobs:
         id: package-engines-versions
         with:
           fallbackNode: '^20'
-          fallbackNpm: '^9'
+          fallbackNpm: '^10'
 
       - name: Set up node ${{ steps.package-engines-versions.outputs.nodeVersion }}
         uses: actions/setup-node@b39b52d1213e96004bfcb1c61a8a6fa8ab84f3e8 # v3
@@ -95,10 +96,9 @@ jobs:
           npm ci
           npm run build --if-present
       
-      - name: Rebase
+      - name: Rebase to ${{ needs.init.outputs.base_ref }}
         if: ${{ contains(needs.init.outputs.arg1, 'rebase') }}
-        run: |
-          git rebase master
+        run: git rebase ${{ needs.init.outputs.base_ref }}
 
       - name: Commit and push default
         if: ${{ !contains(needs.init.outputs.arg1, 'fixup') && !contains(needs.init.outputs.arg1, 'amend') }}
