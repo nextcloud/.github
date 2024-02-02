@@ -92,7 +92,6 @@ jobs:
         if: ${{ contains(needs.init.outputs.arg1, 'rebase') }}
         run: |
           git fetch origin ${{ needs.init.outputs.base_ref }}:${{ needs.init.outputs.base_ref }}
-          git status
           git rebase origin/${{ needs.init.outputs.base_ref }}
 
       - name: Install dependencies & build
