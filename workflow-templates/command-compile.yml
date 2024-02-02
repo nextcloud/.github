@@ -87,6 +87,12 @@ jobs:
 
       - name: Set up npm ${{ steps.package-engines-versions.outputs.npmVersion }}
         run: npm i -g npm@"${{ steps.package-engines-versions.outputs.npmVersion }}"
+      
+      - name: Rebase to ${{ needs.init.outputs.base_ref }}
+        if: ${{ contains(needs.init.outputs.arg1, 'rebase') }}
+        run: |
+          git fetch origin ${{ needs.init.outputs.base_ref }}:${{ needs.init.outputs.base_ref }}
+          git rebase origin/${{ needs.init.outputs.base_ref }}
 
       - name: Install dependencies & build
         env:
@@ -95,33 +101,34 @@ jobs:
         run: |
           npm ci
           npm run build --if-present
-      
-      - name: Rebase to ${{ needs.init.outputs.base_ref }}
-        if: ${{ contains(needs.init.outputs.arg1, 'rebase') }}
-        run: git rebase ${{ needs.init.outputs.base_ref }}
 
-      - name: Commit and push default
+      - name: Commit default
         if: ${{ !contains(needs.init.outputs.arg1, 'fixup') && !contains(needs.init.outputs.arg1, 'amend') }}
         run: |
           git add ${{ github.workspace }}${{ needs.init.outputs.git_path }}
           git commit --signoff -m 'chore(assets): Recompile assets'
-          git push origin ${{ needs.init.outputs.head_ref }}
  
-      - name: Commit and push fixup
+      - name: Commit fixup
         if: ${{ contains(needs.init.outputs.arg1, 'fixup') }}
         run: |
           git add ${{ github.workspace }}${{ needs.init.outputs.git_path }}
           git commit --fixup=HEAD --signoff
-          git push origin ${{ needs.init.outputs.head_ref }}
 
-      - name: Commit and push amend
+      - name: Commit amend
         if: ${{ contains(needs.init.outputs.arg1, 'amend') }}
         run: |
           git add ${{ github.workspace }}${{ needs.init.outputs.git_path }}
           git commit --amend --no-edit --signoff
           # Remove any [skip ci] from the amended commit
           git commit --amend -m "$(git log -1 --format='%B' | sed '/\[skip ci\]/d')"
-          git push --force origin ${{ needs.init.outputs.head_ref }}
+ 
+      - name: Push normally
+        if: ${{ !contains(needs.init.outputs.arg1, 'rebase') && !contains(needs.init.outputs.arg1, 'amend') }}
+        run: git push origin ${{ needs.init.outputs.head_ref }}
+
+      - name: Force push
+        if: ${{ contains(needs.init.outputs.arg1, 'rebase') || contains(needs.init.outputs.arg1, 'amend') }}
+        run: git push --force origin ${{ needs.init.outputs.head_ref }}
 
       - name: Add reaction on failure
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0

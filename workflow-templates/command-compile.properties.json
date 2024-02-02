@@ -1,5 +1,5 @@
 {
     "name": "Compile node workflow",
-    "description": "Compile and commit node assets.\nExample: `/compile [[rebase][+][amend|fixup]] /[path/to/assets]`",
+    "description": "Compile and commit node assets.\nExample: `/compile [[rebase][-][amend|fixup]] /[path/to/assets]`",
     "iconName": "command-compile"
 }
