@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   matrix:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest-low
     outputs:
       php-max: ${{ steps.versions.outputs.php-max-list }}
       server-max: ${{ steps.versions.outputs.branches-max-list }}
@@ -29,7 +29,7 @@ jobs:
         uses: icewind1991/nextcloud-version-matrix@d594a6929da316b732c53355e52a1ead77ba36c7 # v1.2.0
 
   changes:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest-low
 
     outputs:
       src: ${{ steps.changes.outputs.src}}
@@ -169,7 +169,7 @@ jobs:
   summary:
     permissions:
       contents: none
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest-low
     needs: [changes, phpunit-pgsql]
 
     if: always()

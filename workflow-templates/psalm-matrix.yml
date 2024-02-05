@@ -45,7 +45,7 @@ jobs:
         run: composer run psalm
 
   summary:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest-low
     needs: static-analysis
 
     if: always()
