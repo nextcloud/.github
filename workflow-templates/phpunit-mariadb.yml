@@ -3,7 +3,7 @@
 # https://github.com/nextcloud/.github
 # https://docs.github.com/en/actions/learn-github-actions/sharing-workflows-with-your-organization
 
-name: PHPUnit mariadb
+name: PHPUnit MariaDB
 
 on: pull_request
 

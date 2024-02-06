@@ -63,6 +63,8 @@ jobs:
         php-versions: ${{ fromJson(needs.matrix.outputs.php-version) }}
         server-versions: ${{ fromJson(needs.matrix.outputs.server-max) }}
 
+    name: OCI PHP ${{ matrix.php-versions }} Nextcloud ${{ matrix.server-versions }}
+
     services:
       oracle:
         image: ghcr.io/gvenzl/oracle-xe:11
