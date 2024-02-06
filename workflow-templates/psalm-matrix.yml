@@ -13,7 +13,7 @@ concurrency:
 
 jobs:
   matrix:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest-low
     outputs:
       ocp-matrix: ${{ steps.versions.outputs.ocp-matrix }}
     steps:

@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   matrix:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest-low
     outputs:
       php-versions: ${{ steps.versions.outputs.php-versions }}
     steps:
