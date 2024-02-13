@@ -98,14 +98,14 @@ jobs:
       - name: Run ${{ matrix.containers == 'component' && 'component' || 'E2E' }} cypress tests
         uses: cypress-io/github-action@1b70233146622b69e789ccdd4f9452adc638d25a # v6.6.1
         with:
-          record: true
-          parallel: true
+          record: ${{ secrets.CYPRESS_RECORD_KEY && true }}
+          parallel: ${{ secrets.CYPRESS_RECORD_KEY && true }}
           # cypress run type
           component: ${{ matrix.containers == 'component' }}
-          group: Run ${{ matrix.containers == 'component' && 'component' || 'E2E' }}
+          group: ${{ secrets.CYPRESS_RECORD_KEY && env.CYPRESS_GROUP }}
           # cypress env
-          ci-build-id: ${{ github.sha }}-${{ github.run_number }}
-          tag: ${{ github.event_name }}
+          ci-build-id: ${{ secrets.CYPRESS_RECORD_KEY && env.CYPRESS_BUILD_ID }}
+          tag: ${{ secrets.CYPRESS_RECORD_KEY && github.event_name }}
         env:
           # Needs to be prefixed with CYPRESS_
           CYPRESS_BRANCH: ${{ env.BRANCH }}
@@ -115,6 +115,8 @@ jobs:
           TESTING: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          CYPRESS_BUILD_ID: ${{ github.sha }}-${{ github.run_number }}
+          CYPRESS_GROUP: Run ${{ matrix.containers == 'component' && 'component' || 'E2E' }}
 
       - name: Upload snapshots
         uses: actions/upload-artifact@5d5d22a31266ced268874388b861e4b58bb5c2f3 # v4.3.1
