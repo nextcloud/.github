@@ -60,7 +60,7 @@ jobs:
         uses: peter-evans/create-pull-request@b1ddad2c994a25fbc81a28b3ec0e368bb2021c50 # v5
         with:
           token: ${{ secrets.COMMAND_BOT_PAT }}
-          commit-message: "chore(deps): fix npm audit"
+          commit-message: "fix(deps): fix npm audit"
           committer: GitHub <noreply@github.com>
           author: nextcloud-command <nextcloud-command@users.noreply.github.com>
           signoff: true
