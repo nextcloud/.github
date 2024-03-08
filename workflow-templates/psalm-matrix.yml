@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
       - name: Get version matrix
         id: versions
-        uses: icewind1991/nextcloud-version-matrix@7d433286e92318f51ed0537b6c77374759e12f46 # v1.3.0
+        uses: icewind1991/nextcloud-version-matrix@58becf3b4bb6dc6cef677b15e2fd8e7d48c0908f # v1.3.1
 
   static-analysis:
     runs-on: ubuntu-latest
