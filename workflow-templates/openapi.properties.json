@@ -1,0 +1,5 @@
+{
+    "name": "OpenAPI status check",
+    "description": "Checks that the openapi.json (and typescript definitions if applicable) are up to date",
+    "iconName": "openapi"
+}
