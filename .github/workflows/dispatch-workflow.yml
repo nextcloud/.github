@@ -47,6 +47,8 @@ jobs:
       matrix:
         repositories: ${{ fromJSON(needs.repositories.outputs.matrix) }}
 
+    name: dispatch ${{ github.event.inputs.name }}
+
     steps:
       - name: Checkout target repository
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
