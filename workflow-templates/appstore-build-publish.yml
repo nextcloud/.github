@@ -92,11 +92,11 @@ jobs:
         # Skip if no package.json
         if: ${{ steps.versions.outputs.nodeVersion }}
         env:
-          CYPRESS_INSTALL_BINARY: 0
+          NODE_ENV: production
         run: |
           cd ${{ env.APP_NAME }}
           npm ci
-          npm run build
+          npm run build --if-present
 
       - name: Check Krankerl config
         id: krankerl
