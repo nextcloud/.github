@@ -51,7 +51,7 @@ jobs:
 
     steps:
       - name: Checkout target repository
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
+        uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4.1.4
         with:
           path: target
           repository: ${{ github.repository_owner }}/${{ matrix.repositories }}
@@ -64,7 +64,7 @@ jobs:
 
       - name: Checkout source repository
         if: steps.check_file_existence.outputs.files_exists == 'true'
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
+        uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4.1.4
         with:
           path: source
 
