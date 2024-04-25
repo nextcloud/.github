@@ -1,3 +1,8 @@
+<!--
+SPDX-FileCopyrightText: 2021-2024 Nextcloud GmbH and Nextcloud contributors
+SPDX-License-Identifier: MIT
+-->
+
 # Security Policy
 
 [Security](https://nextcloud.com/security/) is very important to us.

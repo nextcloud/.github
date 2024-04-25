@@ -1,0 +1,12 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Nextcloud's workflow templates
+Upstream-Contact: Nextcloud GmbH <https://nextcloud.com/impressum/>
+Source: https://github.com/nextcloud/.github
+
+Files: workflow-templates/*.properties.json
+Copyright: Nextcloud GmbH and Nextcloud contributors
+License: MIT
+
+Files: screenshots/*
+Copyright: Nextcloud GmbH and Nextcloud contributors
+License: MIT

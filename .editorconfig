@@ -1,4 +1,7 @@
 # https://editorconfig.org
+#
+# SPDX-FileCopyrightText: Nextcloud GmbH and Nextcloud contributors
+# SPDX-License-Identifier: MIT
 
 root = true
 

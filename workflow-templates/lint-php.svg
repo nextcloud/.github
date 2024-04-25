@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+SPDX-FileCopyrightText: 1997 Colin Viebrock
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
 <svg height="383.5975" id="svg3430" version="1.1" viewBox="0 0 711.20123 383.5975" width="711.20123" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg">
   <title id="title3510">Official PHP Logo</title>
   <metadata id="metadata3436">
@@ -18,7 +22,7 @@
             <dc:title/>
           </cc:Agent>
         </dc:contributor>
-        <cc:license rdf:resource="http://creativecommons.org/licenses/by-sa/3.0/"/>
+        <cc:license rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/"/>
         <dc:rights>
           <cc:Agent>
             <dc:title>Copyright Colin Viebrock 1997 - All rights reserved.</dc:title>
@@ -26,7 +30,7 @@
         </dc:rights>
         <dc:date>1997</dc:date>
       </cc:Work>
-      <cc:License rdf:about="http://creativecommons.org/licenses/by-sa/3.0/">
+      <cc:License rdf:about="http://creativecommons.org/licenses/by-sa/4.0/">
         <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
         <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
         <cc:requires rdf:resource="http://creativecommons.org/ns#Notice"/>

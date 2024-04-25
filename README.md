@@ -1,3 +1,8 @@
+<!--
+SPDX-FileCopyrightText: 2021-2024 Nextcloud GmbH and Nextcloud contributors
+SPDX-License-Identifier: MIT
+-->
+
 # This repository contains Nextcloud's workflow templates
 
 ## Setup a new template on your repository
