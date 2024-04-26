@@ -4,9 +4,9 @@ Upstream-Contact: Nextcloud GmbH <https://nextcloud.com/impressum/>
 Source: https://github.com/nextcloud/.github
 
 Files: workflow-templates/*.properties.json
-Copyright: Nextcloud GmbH and Nextcloud contributors
+Copyright: 2021-2024 Nextcloud GmbH and Nextcloud contributors
 License: MIT
 
 Files: screenshots/*
-Copyright: Nextcloud GmbH and Nextcloud contributors
+Copyright: 2022-2024 Nextcloud GmbH and Nextcloud contributors
 License: MIT
