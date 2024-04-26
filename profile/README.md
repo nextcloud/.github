@@ -1,3 +1,8 @@
+<!--
+SPDX-FileCopyrightText: 2021-2024 Nextcloud GmbH and Nextcloud contributors
+SPDX-License-Identifier: MIT
+-->
+
 # Nextcloud
 **A safe home for all your data.**
 

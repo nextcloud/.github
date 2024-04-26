@@ -1,5 +1,5 @@
 {
     "name": "Block unconventional commits",
     "description": "Add a failing github action when the commits do not match the conventional commits convention",
-    "iconName": "block-unconventional-commits"
+    "iconName": "octicon git-pull-request-closed"
 }

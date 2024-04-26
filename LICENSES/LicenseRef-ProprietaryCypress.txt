@@ -1,0 +1,2 @@
+The cypress logo is a registered Trademark of the cypress.io Inc
+It can be used under their Terms of Use, a copy can be found at https://www.cypress.io/terms-of-use

@@ -1,7 +1,7 @@
 {
     "name": "Node testing workflow",
     "description": "Setup node and npm, install dependencies, build test and send coverage to codecov if enabled.",
-    "iconName": "node-test",
+    "iconName": "octicon codescan-checkmark",
     "categories": [
         "JavaScript",
         "codecov",

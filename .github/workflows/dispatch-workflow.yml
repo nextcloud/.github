@@ -1,6 +1,10 @@
 # This workflow needs to be run on demand
 # It will search for all repositories containing the provided
 # action and open pull requests if necessary.
+# This workflow is provided via the organization template repository
+#
+# SPDX-FileCopyrightText: 2021-2024 Nextcloud GmbH and Nextcloud contributors
+# SPDX-License-Identifier: MIT
 
 name: Update workflow from org template
 

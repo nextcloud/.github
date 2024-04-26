@@ -1,7 +1,7 @@
 {
     "name": "npm audit fix",
     "description": "Fixes npm audit",
-    "iconName": "npm-audit-fix",
+    "iconName": "octicon shield-check",
     "categories": [
       "JavaScript"
     ],

@@ -1,3 +1,8 @@
+<!--
+SPDX-FileCopyrightText: 2021-2024 Nextcloud GmbH and Nextcloud contributors
+SPDX-License-Identifier: MIT
+-->
+
 ## Submitting issues
 
 If you have questions about how to install or use Nextcloud, please direct these to our [forum][forum].

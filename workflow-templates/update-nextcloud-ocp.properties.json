@@ -1,7 +1,7 @@
 {
   "name": "Update nextcloud/ocp",
   "description": "Update nextcloud/ocp dev dependency",
-  "iconName": "update-nextcloud-ocp",
+  "iconName": "octicon git-pull-request",
   "categories": [
     "PHP"
   ],

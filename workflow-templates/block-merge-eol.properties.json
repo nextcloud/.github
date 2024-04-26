@@ -1,5 +1,5 @@
 {
     "name": "Block merging for EOL branches",
     "description": "If trying to merge  a PR against a stablexx branch, testing our updater server to check if the version is end-of-life. If so, merging will require Admin's approval.",
-    "iconName": "block-merge-eol"
+    "iconName": "octicon git-pull-request-closed"
 }

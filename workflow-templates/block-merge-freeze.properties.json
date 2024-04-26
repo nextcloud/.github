@@ -1,5 +1,5 @@
 {
     "name": "Block merging during freeze",
     "description": "Add a failing github action when the server base branch is in RC phase",
-    "iconName": "block-merge-freeze"
+    "iconName": "octicon git-pull-request-closed"
 }
