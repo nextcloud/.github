@@ -1,0 +1,8 @@
+{
+  "name": "REUSE compliance check",
+  "description": "Check SPDX headers for REUSE compliance",
+  "iconName": "octicon verified",
+  "categories": [
+    "coverage"
+  ]
+}
