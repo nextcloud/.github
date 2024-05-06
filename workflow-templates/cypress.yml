@@ -20,7 +20,7 @@ env:
 
   # This represents the server branch to checkout.
   # Usually it's the base branch of the PR, but for pushes it's the branch itself.
-  # e.g. 'main', 'stable27' or 'feature/my-feature
+  # e.g. 'main', 'stable27' or 'feature/my-feature'
   # n.b. server will use head_ref, as we want to test the PR branch.
   BRANCH: ${{ github.base_ref || github.ref_name }}
 
@@ -61,7 +61,7 @@ jobs:
           node-version: ${{ steps.versions.outputs.nodeVersion }}
 
       - name: Set up npm ${{ steps.versions.outputs.npmVersion }}
-        run: npm i -g npm@"${{ steps.versions.outputs.npmVersion }}"
+        run: npm i -g 'npm@${{ steps.versions.outputs.npmVersion }}'
 
       - name: Install node dependencies & build app
         run: |
@@ -83,7 +83,7 @@ jobs:
       matrix:
         # Run multiple copies of the current job in parallel
         # Please increase the number or runners as your tests suite grows
-        containers: ["component", 1, 2, 3]
+        containers: ['component', '1', '2', '3']
 
     name: runner ${{ matrix.containers }}
 
@@ -101,7 +101,7 @@ jobs:
           node-version: ${{ needs.init.outputs.nodeVersion }}
 
       - name: Set up npm ${{ needs.init.outputs.npmVersion }}
-        run: npm i -g npm@"${{ needs.init.outputs.npmVersion }}"
+        run: npm i -g 'npm@${{ needs.init.outputs.npmVersion }}'
 
       - name: Run ${{ matrix.containers == 'component' && 'component' || 'E2E' }} cypress tests
         uses: cypress-io/github-action@f88a151c986cab2e339cdbede6a5c4468bb62c17 # v6.7.0
