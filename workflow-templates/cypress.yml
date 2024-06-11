@@ -26,7 +26,7 @@ env:
 
 jobs:
   init:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest-low
     outputs:
       nodeVersion: ${{ steps.versions.outputs.nodeVersion }}
       npmVersion: ${{ steps.versions.outputs.npmVersion }}
@@ -145,7 +145,7 @@ jobs:
           path: nextcloud.log
 
   summary:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest-low
     needs: [init, cypress]
 
     if: always()
