@@ -78,7 +78,7 @@ jobs:
 
       - name: Create Pull Request
         if: steps.check_file_existence.outputs.files_exists == 'true'
-        uses: peter-evans/create-pull-request@c5a7806660adbe173f04e3e038b0ccdcd758773c # v4
+        uses: peter-evans/create-pull-request@c5a7806660adbe173f04e3e038b0ccdcd758773c # v6.1.0
         with:
           body: 'Automated update of the ${{ github.event.inputs.name }} workflow from https://github.com/${{ github.repository }}'
           branch: 'feat/workflow-auto-update-${{ github.event.inputs.name }}'
