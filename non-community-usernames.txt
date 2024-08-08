@@ -14,6 +14,7 @@ mejo-
 nc-fkl
 nextcloud-android-bot
 nextcloud-command
+raimund-schluessler
 SebastianKrupinski
 skalidindi53
 skjnldsv
