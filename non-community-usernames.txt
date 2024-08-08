@@ -15,6 +15,7 @@ nc-fkl
 nextcloud-android-bot
 nextcloud-command
 raimund-schluessler
+rapterjet2004
 SebastianKrupinski
 skalidindi53
 skjnldsv
