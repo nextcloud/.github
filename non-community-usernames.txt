@@ -11,6 +11,7 @@ joshtrichards
 JuliaKirschenheuter
 MB-Finski
 mejo-
+mgallien
 nc-fkl
 nextcloud-android-bot
 nextcloud-command
@@ -21,4 +22,4 @@ skalidindi53
 skjnldsv
 susnux
 solracsf
-mgallien
+viktorix
