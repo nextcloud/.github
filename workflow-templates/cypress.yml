@@ -95,7 +95,7 @@ jobs:
 
     steps:
       - name: Restore context
-        uses: buildjet/cache/save@v4
+        uses: buildjet/cache/restore@v4
         with:
           fail-on-cache-miss: true
           key: cypress-context-${{ github.run_id }}
