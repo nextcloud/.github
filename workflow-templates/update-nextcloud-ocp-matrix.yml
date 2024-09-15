@@ -21,18 +21,18 @@ jobs:
       fail-fast: false
       matrix:
         branches: ['master']
-        target: ['stable27']
+        target: ['stable28']
 
     name: update-nextcloud-ocp-${{ matrix.branches }}
 
     steps:
-      - uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4.1.4
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
         with:
           ref: ${{ matrix.branches }}
           submodules: true
 
       - name: Set up php8.2
-        uses: shivammathur/setup-php@c665c7a15b5295c2488ac8a87af9cb806cd72198 # v2
+        uses: shivammathur/setup-php@c541c155eee45413f5b09a52248675b1a2575231 # v2.31.1
         with:
           php-version: 8.2
           # https://docs.nextcloud.com/server/stable/admin_manual/installation/source_installation.html#prerequisites-for-manual-installation
@@ -81,15 +81,15 @@ jobs:
         continue-on-error: true
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@6d6857d36972b65feb161a90e484f2984215f83e # v6.0.5
+        uses: peter-evans/create-pull-request@d121e62763d8cc35b5fb1710e887d6e69a52d3a4 # v7.0.2
         with:
           token: ${{ secrets.COMMAND_BOT_PAT }}
-          commit-message: "chore(dev-deps): Bump nextcloud/ocp package"
+          commit-message: 'chore(dev-deps): Bump nextcloud/ocp package'
           committer: GitHub <noreply@github.com>
           author: nextcloud-command <nextcloud-command@users.noreply.github.com>
           signoff: true
-          branch: automated/noid/${{ matrix.branches }}-update-nextcloud-ocp
-          title: "[${{ matrix.branches }}] Update nextcloud/ocp dependency"
+          branch: 'automated/noid/${{ matrix.branches }}-update-nextcloud-ocp'
+          title: '[${{ matrix.branches }}] Update nextcloud/ocp dependency'
           body: |
             Auto-generated update of [nextcloud/ocp](https://github.com/nextcloud-deps/ocp/) dependency
           labels: |

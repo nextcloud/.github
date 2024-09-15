@@ -1,0 +1,18 @@
+# SPDX-FileCopyrightText: 2024 Nextcloud GmbH and Nextcloud contributors
+# SPDX-License-Identifier: MIT
+version = 1
+SPDX-PackageName = "Nextcloud's workflow templates"
+SPDX-PackageSupplier = "Nextcloud GmbH <https://nextcloud.com/impressum/>"
+SPDX-PackageDownloadLocation = "https://github.com/nextcloud/.github"
+
+[[annotations]]
+path = "workflow-templates/**.properties.json"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2021-2024 Nextcloud GmbH and Nextcloud contributors"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = "screenshots/**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2022-2024 Nextcloud GmbH and Nextcloud contributors"
+SPDX-License-Identifier = "MIT"
