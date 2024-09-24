@@ -3,7 +3,7 @@ SPDX-FileCopyrightText: 2021-2024 Nextcloud GmbH and Nextcloud contributors
 SPDX-License-Identifier: MIT
 -->
 
-# 🙈 TLDR: Report issues at [hackerone.com/nextcloud](https://hackerone.com/nextcloud)
+# 💡 TLDR: Report issues at [hackerone.com/nextcloud](https://hackerone.com/nextcloud)
 
 # Security Policy
 
