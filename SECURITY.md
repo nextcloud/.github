@@ -3,6 +3,8 @@ SPDX-FileCopyrightText: 2021-2024 Nextcloud GmbH and Nextcloud contributors
 SPDX-License-Identifier: MIT
 -->
 
+# 🙈 TLDR: Report issues at [hackerone.com/nextcloud](https://hackerone.com/nextcloud)
+
 # Security Policy
 
 [Security](https://nextcloud.com/security/) is very important to us.
@@ -19,7 +21,7 @@ is currently considered a security vulnerability versus expected behavior. And r
 
 ## Reporting a Vulnerability
 
-** **Please do _not_ report security vulnerabilities through public GitHub issues.** **
+**⚠️ Please do _not_ report security vulnerabilities through public GitHub issues.**
 
 If you have discovered a security matter with Nextcloud, please read our
 [responsible disclosure guidelines](https://nextcloud.com/security/) and contact us at
