@@ -3,9 +3,9 @@ dartcafe
 datenangebot
 elzody
 enjeck
-nfebe
 grnd-alt
 hweihwang
+individual-it
 Ivansss
 joshtrichards
 JuliaKirschenheuter
@@ -15,6 +15,7 @@ mgallien
 nc-fkl
 nextcloud-android-bot
 nextcloud-command
+nfebe
 raimund-schluessler
 rapterjet2004
 SebastianKrupinski
@@ -23,4 +24,3 @@ skjnldsv
 susnux
 solracsf
 viktorix
-individual-it
