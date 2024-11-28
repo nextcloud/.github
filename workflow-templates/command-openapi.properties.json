@@ -1,0 +1,5 @@
+{
+    "name": "Regenerate OpenAPI workflow",
+    "description": "Regenerate and commit OpenAPI assets.\nExample: `/openapi [[rebase][-][amend|fixup]]`",
+    "iconName": "openapi"
+}
