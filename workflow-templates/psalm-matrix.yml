@@ -67,7 +67,7 @@ jobs:
         run: composer require --dev 'nextcloud/ocp:${{ matrix.ocp-version }}' --ignore-platform-reqs --with-dependencies
 
       - name: Run coding standards check
-        run: composer run psalm
+        run: composer run psalm -- --threads=1 --monochrome --no-progress --output-format=github
 
   summary:
     runs-on: ubuntu-latest-low
