@@ -24,6 +24,10 @@ env:
   # n.b. server will use head_ref, as we want to test the PR branch.
   BRANCH: ${{ github.base_ref || github.ref_name }}
 
+
+permissions:
+  contents: read
+
 jobs:
   init:
     runs-on: ubuntu-latest-low
