@@ -21,6 +21,9 @@ on:
         type: number
         default: 1
 
+permissions:
+  contents: read
+
 jobs:
   repositories:
     runs-on: ubuntu-latest
