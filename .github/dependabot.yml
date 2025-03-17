@@ -10,11 +10,23 @@ version: 2
 updates:
   - package-ecosystem: "github-actions"
     directory: "/workflow-templates"
+    commit-message:
+      prefix: "build"
+      include: "scope"
+    versioning-strategy: "increase"
     schedule:
-      # Check for updates to GitHub Actions every weekday
-      interval: "daily"
+      interval: daily
+      time: "03:00"
+      timezone: Europe/Berlin
+
   - package-ecosystem: "github-actions"
     directory: ".github/workflows"
+    commit-message:
+      prefix: "ci"
+      include: "scope"
+    versioning-strategy: "increase"
     schedule:
-      # Check for updates to GitHub Actions every weekday
-      interval: "weekly"
+      interval: weekly
+      day: saturday
+      time: "03:00"
+      timezone: Europe/Berlin
