@@ -30,7 +30,7 @@ permissions:
 
 jobs:
   init:
-    runs-on: ubuntu-latest-low
+    runs-on: ubuntu-latest
     outputs:
       nodeVersion: ${{ steps.versions.outputs.nodeVersion }}
       npmVersion: ${{ steps.versions.outputs.npmVersion }}
