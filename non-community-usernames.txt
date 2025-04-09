@@ -23,6 +23,7 @@ nc-fkl
 nextcloud-android-bot
 nextcloud-command
 nfebe
+Pytal
 raimund-schluessler
 rapterjet2004
 SebastianKrupinski
