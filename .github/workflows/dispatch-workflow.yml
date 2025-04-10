@@ -88,11 +88,11 @@ jobs:
         with:
           body: 'Automated update of the ${{ github.event.inputs.name }} workflow from https://github.com/${{ github.repository }}'
           branch: 'feat/workflow-auto-update-${{ github.event.inputs.name }}'
-          commit-message: 'chore(CI): Updating ${{ github.event.inputs.name }} workflow from template'
+          commit-message: 'ci: update ${{ github.event.inputs.name }} workflow from template'
           committer: Nextcloud bot <bot@nextcloud.com>
           author: Nextcloud bot <bot@nextcloud.com>
           path: target
           signoff: true
-          title: 'chore(CI): Updating ${{ github.event.inputs.name }} workflow from template'
+          title: 'ci: update ${{ github.event.inputs.name }} workflow from template'
           labels: dependencies
           token: ${{ secrets.TEMPLATE_WORKFLOW_DISPATCH_PAT }}
