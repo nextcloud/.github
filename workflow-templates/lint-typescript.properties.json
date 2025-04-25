@@ -1,0 +1,13 @@
+{
+	"name": "Typechecking",
+	"description": "Checking Typescript types. Requires 'ts:check' script in 'package.json'.",
+	"iconName": "octicon codescan-checkmark",
+    "categories": [
+        "TypeScript",
+        "code-quality",
+        "npm"
+    ],
+	"filePatterns": [
+		"^tsconfig.json$"
+	]
+}
