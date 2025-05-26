@@ -25,6 +25,7 @@ nextcloud-command
 nfebe
 Pytal
 raimund-schluessler
+rakekniven
 rapterjet2004
 SebastianKrupinski
 skalidindi53
