@@ -26,9 +26,8 @@ concurrency:
 jobs:
   changes:
     runs-on: ubuntu-latest-low
-    permissions:
-      contents: read
-      pull-requests: read
+    # Required for dorny/paths-filter
+    permissions: read-all
 
     outputs:
       src: ${{ steps.changes.outputs.src}}
