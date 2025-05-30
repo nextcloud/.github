@@ -21,6 +21,7 @@ mejo-
 mgallien
 nc-fkl
 nextcloud-android-bot
+nextcloud-bot
 nextcloud-command
 nfebe
 Pytal
