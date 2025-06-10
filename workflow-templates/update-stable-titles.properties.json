@@ -1,0 +1,5 @@
+{
+    "name": "Auto update PRs titles for stable branches ",
+    "description": "If a PR is created against a stable branch and is missing the `[stable]` tag in the title, this script willtake care of it.",
+    "iconName": "update-stable-titles"
+}
