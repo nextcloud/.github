@@ -1,0 +1,14 @@
+{
+    "name": "Autoapproving renovate PRs",
+    "description": "Autoapprove renovate pull requests and set them to automerge",
+    "iconName": "octicon git-pull-request",
+    "categories": [
+        "renovate",
+        "pr",
+        "approve",
+        "automerge"
+    ],
+    "filePatterns": [
+        "^renovate.json5?$"
+    ]
+}
