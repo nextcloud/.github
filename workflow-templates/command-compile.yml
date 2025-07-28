@@ -172,7 +172,7 @@ jobs:
 
       - name: Force push
         if: ${{ contains(needs.init.outputs.arg1, 'rebase') || contains(needs.init.outputs.arg1, 'amend') }}
-        run: git push --force origin '${{ needs.init.outputs.head_ref }}'
+        run: git push --force-with-lease origin '${{ needs.init.outputs.head_ref }}'
 
       - name: Add reaction on failure
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
