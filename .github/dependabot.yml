@@ -13,7 +13,6 @@ updates:
     commit-message:
       prefix: "build"
       include: "scope"
-    versioning-strategy: "increase"
     schedule:
       interval: daily
       time: "03:00"
@@ -24,7 +23,6 @@ updates:
     commit-message:
       prefix: "ci"
       include: "scope"
-    versioning-strategy: "increase"
     schedule:
       interval: weekly
       day: saturday
