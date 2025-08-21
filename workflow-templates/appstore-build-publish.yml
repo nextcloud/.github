@@ -106,6 +106,31 @@ jobs:
           cd ${{ env.APP_NAME }}
           composer install --no-dev
 
+      - name: Check Cargo.toml
+        id: check_cargo
+        uses: andstor/file-existence-action@20b4d2e596410855db8f9ca21e96fbe18e12930b # v2
+        with:
+          files: "${{ env.APP_NAME }}/Cargo.toml"
+
+      - name: Install musl-tools
+        if: steps.check_cargo.outputs.files_exists == 'true'
+        run: |
+          sudo apt-get install musl-tools
+
+      - name: Setup rust toolchain
+        uses: actions-rs/toolchain@v1
+        if: steps.check_cargo.outputs.files_exists == 'true'
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+          target: x86_64-unknown-linux-musl
+
+      - name: Install cargo-cross
+        if: steps.check_cargo.outputs.files_exists == 'true'
+        run: |
+          cargo install cross --locked
+
       - name: Build ${{ env.APP_NAME }}
         # Skip if no package.json
         if: ${{ steps.versions.outputs.nodeVersion }}
