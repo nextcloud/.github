@@ -136,26 +136,26 @@ jobs:
         if: ${{ contains(needs.init.outputs.arg1, 'rebase') }}
         run: |
           git fetch origin '${{ needs.init.outputs.base_ref }}:${{ needs.init.outputs.base_ref }}'
-          
+
           # Start the rebase
           git rebase 'origin/${{ needs.init.outputs.base_ref }}' || {
             # Handle rebase conflicts in a loop
             while [ -d .git/rebase-merge ] || [ -d .git/rebase-apply ]; do
               echo "Handling rebase conflict..."
-              
+
               # Remove and checkout /dist and /js folders from the base branch
               if [ -d "dist" ]; then
                 rm -rf dist
                 git checkout origin/${{ needs.init.outputs.base_ref }} -- dist/ 2>/dev/null || echo "No dist folder in base branch"
               fi
               if [ -d "js" ]; then
-                rm -rf js  
+                rm -rf js
                 git checkout origin/${{ needs.init.outputs.base_ref }} -- js/ 2>/dev/null || echo "No js folder in base branch"
               fi
-              
+
               # Stage all changes
               git add .
-              
+
               # Check if there are any changes after resolving conflicts
               if git diff --cached --quiet; then
                 echo "No changes after conflict resolution, skipping commit"
@@ -164,7 +164,7 @@ jobs:
                 echo "Changes found, continuing rebase without editing commit message"
                 git -c core.editor=true rebase --continue
               fi
-              
+
               # Break if rebase is complete
               if [ ! -d .git/rebase-merge ] && [ ! -d .git/rebase-apply ]; then
                 break

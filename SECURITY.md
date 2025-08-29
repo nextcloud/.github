@@ -46,7 +46,7 @@ The vulnerability will be publicly announced after the release. Finally, your na
 to the [hall of fame](https://hackerone.com/nextcloud/thanks) as a thank you from the entire Nextcloud
 community.
 
-If the vulnerability involves an app that is not maintained by Nextcloud (i.e. hosted by the 
+If the vulnerability involves an app that is not maintained by Nextcloud (i.e. hosted by the
 Nextcloud project but community maintained, or hosted elsewhere), the security team will try to coordinate with the
 current maintainer and help to get the issue fixed in similar fashion.
 
