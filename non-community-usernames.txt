@@ -22,6 +22,7 @@ lukasdotcom
 MB-Finski
 mejo-
 mgallien
+minion3665
 nc-fkl
 nextcloud-android-bot
 nextcloud-bot
