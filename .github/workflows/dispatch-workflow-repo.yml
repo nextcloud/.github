@@ -69,11 +69,12 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
         with:
-          body: 'Automated update of all workflow templates from https://github.com/${{ github.repository }}'
+          body: 'Automated update of all workflow templates from https://github.com/${{ github.repository }} triggered by ${{ github.actor }}'
           branch: 'feat/workflow-auto-update-all-templates-${{ github.event.inputs.branch }}'
           commit-message: 'ci: update all workflow templates from organization template repository'
           committer: Nextcloud bot <bot@nextcloud.com>
           author: Nextcloud bot <bot@nextcloud.com>
+          assignees: ${{ github.actor }}
           path: target
           signoff: true
           title: '[${{ github.event.inputs.branch }}] ci: update all workflow templates from organization template repository'
