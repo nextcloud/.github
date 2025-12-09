@@ -6,7 +6,7 @@ SPDX-License-Identifier: MIT
 # Nextcloud
 **A safe home for all your data.**
 
-![](https://raw.githubusercontent.com/nextcloud/screenshots/master/nextcloud-hub-files-25-preview.png)
+![Files view shown in browser and the iOS app](https://raw.githubusercontent.com/nextcloud/screenshots/master/nextcloud-hub-25-files.png)
 
 ## Why is this so awesome? 🤩
 
