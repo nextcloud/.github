@@ -1,0 +1,11 @@
+{
+    "name": "rector apply",
+    "description": "Applies rector changes",
+    "iconName": "octicon shield-check",
+    "categories": [
+      "PHP"
+    ],
+    "filePatterns": [
+      "^composer.json$"
+    ]
+  }
