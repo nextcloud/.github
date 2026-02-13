@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<info>
+	<id>pocketbooksync</id>
+	<name>PocketBook Sync</name>
+	<summary>Sync PocketBook Cloud highlights and notes into markdown files</summary>
+	<description>Connects a user's PocketBook Cloud account and regularly syncs book highlights into one markdown file per book.</description>
+	<version>0.1.0</version>
+	<licence>agpl</licence>
+	<author mail="dev@example.com">Codex</author>
+	<namespace>PocketBookSync</namespace>
+	<category>productivity</category>
+	<settings>
+		<personal>OCA\PocketBookSync\Settings\Personal</personal>
+	</settings>
+	<background-jobs>
+		<job>OCA\PocketBookSync\BackgroundJob\SyncJob</job>
+	</background-jobs>
+	<dependencies>
+		<nextcloud min-version="29" max-version="31"/>
+	</dependencies>
+</info>
