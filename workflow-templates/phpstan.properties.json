@@ -1,0 +1,10 @@
+{
+  "name": "PHPStan static analysis",
+  "description": "Run PHPStan static analysis",
+  "categories": [
+    "PHP"
+  ],
+  "filePatterns": [
+    "^composer.json$"
+  ]
+}
