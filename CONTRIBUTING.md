@@ -61,4 +61,4 @@ In case you are not sure how to add or update the license header correctly pleas
 ## Translations
 Please submit translations via [Transifex][transifex].
 
-[transifex]: https://www.transifex.com/nextcloud
+[transifex]: https://explore.transifex.com/nextcloud
