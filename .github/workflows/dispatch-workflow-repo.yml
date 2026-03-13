@@ -79,4 +79,4 @@ jobs:
           signoff: true
           title: '[${{ github.event.inputs.branch }}] ci: update all workflow templates from organization template repository'
           labels: dependencies
-          token: ${{ secrets.TEMPLATE_WORKFLOW_DISPATCH_PAT }}
+          token: ${{ secrets.TEMPLATE_WORKFLOW_DISPATCH_PAT }} # zizmor: ignore[secrets-outside-env]
