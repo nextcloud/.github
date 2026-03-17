@@ -1,0 +1,11 @@
+{
+  "name": "Auto workflows update",
+  "description": "Auto update workflows from the template repository",
+  "iconName": "octicon git-pull-request",
+  "categories": [
+    "yml"
+  ],
+  "filePatterns": [
+    ".github/workflows/*"
+  ]
+}
