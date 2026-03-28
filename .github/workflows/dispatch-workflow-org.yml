@@ -1,0 +1,53 @@
+# This workflow needs to be run on demand
+# It will update all workflow templates in all repositories of the organization
+# This workflow is provided via the organization template repository
+#
+# SPDX-FileCopyrightText: 2021-2024 Nextcloud GmbH and Nextcloud contributors
+# SPDX-License-Identifier: MIT
+name: Update workflows for all repositories
+
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  get-repos:
+    runs-on: ubuntu-latest
+    name: Get all repositories in the organization
+    outputs:
+      repositories: ${{ steps.get-repos.outputs.repositories }}
+    steps:
+      - name: Check actor permission
+        uses: skjnldsv/check-actor-permission@69e92a3c4711150929bca9fcf34448c5bf5526e7 # v3.0
+        with:
+          require: admin
+
+      - name: Get all repositories
+        id: get-repos
+        env:
+          GH_TOKEN: ${{ secrets.TEMPLATE_WORKFLOW_DISPATCH_PAT }} # zizmor: ignore[secrets-outside-env]
+        run: |
+          repositories=$(gh api \
+            --paginate \
+            --jq '[.[] | {name: .name, branch: .default_branch}]' \
+            orgs/${{ github.repository_owner }}/repos \
+            | jq -sc 'add')
+          echo "repositories=$repositories" >> $GITHUB_OUTPUT
+
+  dispatch:
+    runs-on: ubuntu-latest
+    needs: get-repos
+    name: Update all workflows in ${{ matrix.repository.name }}
+    strategy:
+      fail-fast: false
+      matrix:
+        repository: ${{ fromJson(needs.get-repos.outputs.repositories) }}
+    steps:
+      - name: Dispatch update workflow
+        env:
+          GH_TOKEN: ${{ secrets.TEMPLATE_WORKFLOW_DISPATCH_PAT }} # zizmor: ignore[secrets-outside-env]
+        run: |
+          gh workflow run dispatch-workflow-repo.yml \
+            --repo ${{ github.repository }} \
+            --field repository=${{ matrix.repository.name }} \
+            --field branch=${{ matrix.repository.branch }}
