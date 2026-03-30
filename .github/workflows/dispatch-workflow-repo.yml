@@ -43,6 +43,19 @@ jobs:
           repository: ${{ github.repository_owner }}/${{ github.event.inputs.repository }}
           ref: ${{ github.event.inputs.branch }}
 
+      - name: Check sync-workflow-templates.yml file existence
+        id: check_sync_workflow_templates_existence
+        uses: andstor/file-existence-action@076e0072799f4942c8bc574a82233e1e4d13e9d6 # v3.0.0
+        with:
+          files: target/.github/workflows/sync-workflow-templates.yml
+
+      - name: Fail when synced # zizmor: ignore[template-injection]
+        if: ${{ steps.check_sync_workflow_templates_existence.outputs.files_exists == 'true' }}
+        run: |
+          echo 'Repository is syncing workflows. Please dispatch the workflow on the repository instead:'
+          echo 'https://github.com/${{ github.repository_owner }}/${{ matrix.repositories }}/actions/workflows/sync-workflow-templates.yml'
+          exit 1
+
       - name: Checkout source repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
