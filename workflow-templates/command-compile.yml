@@ -211,7 +211,7 @@ jobs:
         if: ${{ !contains(needs.init.outputs.arg1, 'rebase') && !contains(needs.init.outputs.arg1, 'amend') }}
         env:
           HEAD_REF: ${{ needs.init.outputs.head_ref }}
-          BOT_TOKEN: ${{ secrets.COMMAND_BOT_PAT }}
+          BOT_TOKEN: ${{ secrets.COMMAND_BOT_PAT }}  # zizmor: ignore[secrets-outside-env]
         run: |
           git remote set-url origin "https://x-access-token:${BOT_TOKEN}@github.com/${{ github.repository }}.git"
           git push origin "$HEAD_REF"
@@ -220,7 +220,7 @@ jobs:
         if: ${{ contains(needs.init.outputs.arg1, 'rebase') || contains(needs.init.outputs.arg1, 'amend') }}
         env:
           HEAD_REF: ${{ needs.init.outputs.head_ref }}
-          BOT_TOKEN: ${{ secrets.COMMAND_BOT_PAT }}
+          BOT_TOKEN: ${{ secrets.COMMAND_BOT_PAT }}  # zizmor: ignore[secrets-outside-env]
         run: |
           git remote set-url origin "https://x-access-token:${BOT_TOKEN}@github.com/${{ github.repository }}.git"
           git push --force-with-lease origin "$HEAD_REF"
