@@ -25,7 +25,7 @@ jobs:
       - name: Get all repositories
         id: get-repos
         env:
-          GH_TOKEN: ${{ secrets.TEMPLATE_WORKFLOW_DISPATCH_PAT }} # zizmor: ignore[secrets-outside-env]
+          GH_TOKEN: ${{ secrets.TEMPLATE_WORKFLOW_DISPATCH_PAT }}
         run: |
           repositories=$(gh api \
             --paginate \
@@ -45,7 +45,7 @@ jobs:
     steps:
       - name: Dispatch update workflow
         env:
-          GH_TOKEN: ${{ secrets.TEMPLATE_WORKFLOW_DISPATCH_PAT }} # zizmor: ignore[secrets-outside-env]
+          GH_TOKEN: ${{ secrets.TEMPLATE_WORKFLOW_DISPATCH_PAT }}
         run: |
           gh workflow run dispatch-workflow-repo.yml \
             --repo ${{ github.repository }} \
