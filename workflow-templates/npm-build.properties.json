@@ -1,0 +1,11 @@
+{
+    "name": "Frontend build workflow",
+    "description": "Nextcloud workflow template for check frontend builds.",
+    "iconName": "npm-build",
+    "categories": [
+        "JavaScript"
+    ],
+    "filePatterns": [
+        "^package.json$"
+    ]
+}
