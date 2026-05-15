@@ -32,11 +32,18 @@ jobs:
           config_data: |
             line-length: warning
 
-      - name: Install the latest version of uv
-        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
+      - name: Run zizmor 🌈 on actions
+        uses: zizmorcore/zizmor-action@b1d7e1fb5de872772f31590499237e7cce841e8e # v0.5.3
+        with:
+          inputs: '.github/workflows/*.yml'
+          advanced-security: false
+          annotations: true
+          min-severity: 'medium'
 
-      - name: Check GitHub actions
-        run: uvx zizmor --min-severity medium .github/workflows/*.yml
-
-      - name: Check GitHub workflow-templates
-        run: uvx zizmor --min-severity medium workflow-templates/*.yml
+      - name: Run zizmor 🌈 on workflow-templates
+        uses: zizmorcore/zizmor-action@b1d7e1fb5de872772f31590499237e7cce841e8e # v0.5.3
+        with:
+          inputs: 'workflow-templates/*.yml'
+          advanced-security: false
+          annotations: true
+          min-severity: 'medium'
