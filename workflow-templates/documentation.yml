@@ -25,7 +25,7 @@ jobs:
       - name: Check actor permission level
         # Only allow admin to deploy on release
         if: github.event.release
-        uses: skjnldsv/check-actor-permission@69e92a3c4711150929bca9fcf34448c5bf5526e7 # v2
+        uses: skjnldsv/check-actor-permission@69e92a3c4711150929bca9fcf34448c5bf5526e7 # v3.0
         with:
           require: admin
 
