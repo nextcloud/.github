@@ -26,6 +26,11 @@ jobs:
   auto-approve-merge:
     if: github.event.pull_request.user.login == 'dependabot[bot]'
     runs-on: ubuntu-latest-low
+    env:
+      # env variable for maintainers: 'true' allows to auto-merge 1.0.2 -> 2.0.0
+      ALLOW_MAJOR: false
+      # env variable for maintainers: 'true' allows to auto-merge 1.0.2 -> 1.1.0
+      ALLOW_MINOR: true
       # env variable for maintainers: RegExp string to ignore some dependencies from auto-approve and auto-merge
       IGNORE_PATTERN: ''
     permissions:
@@ -88,7 +93,8 @@ jobs:
           && (github.event.action == 'opened' || github.event.action == 'reopened')
           && (
             steps.metadata.outputs.update-type == 'version-update:semver-patch'
-            || steps.metadata.outputs.update-type == 'version-update:semver-minor'
+            || (fromJSON(env.ALLOW_MINOR) && steps.metadata.outputs.update-type == 'version-update:semver-minor')
+            || (fromJSON(env.ALLOW_MAJOR) && steps.metadata.outputs.update-type == 'version-update:semver-major')
           )
           }}
         with:
