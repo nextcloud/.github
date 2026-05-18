@@ -46,12 +46,16 @@ jobs:
 
       - name: Dependabot metadata
         id: metadata
+        if: startsWith(steps.branchname.outputs.branch, 'dependabot/')
         uses: dependabot/fetch-metadata@25dd0e34f4fe68f24cc83900b1fe3fe149efef98 # v3.1.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: GitHub actions bot approve
-        if: startsWith(steps.branchname.outputs.branch, 'dependabot/')
+        id: auto_approve
+        if: ${{
+          startsWith(steps.branchname.outputs.branch, 'dependabot/')
+          }}
         run: gh pr review --approve "$PR_URL"
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
@@ -60,6 +64,13 @@ jobs:
       # Enable GitHub auto merge
       - name: Auto merge
         uses: alexwilson/enable-github-automerge-action@56e3117d1ae1540309dc8f7a9f2825bc3c5f06ff # 2.0.0
-        if: startsWith(steps.branchname.outputs.branch, 'dependabot/') && (github.event.action == 'opened' || github.event.action == 'reopened') && (steps.metadata.outputs.update-type == 'version-update:semver-patch' || steps.metadata.outputs.update-type == 'version-update:semver-minor')
+        if: ${{
+          startsWith(steps.branchname.outputs.branch, 'dependabot/')
+          && (github.event.action == 'opened' || github.event.action == 'reopened')
+          && (
+            steps.metadata.outputs.update-type == 'version-update:semver-patch'
+            || steps.metadata.outputs.update-type == 'version-update:semver-minor'
+          )
+          }}
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
