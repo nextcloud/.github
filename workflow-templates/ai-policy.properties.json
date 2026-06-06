@@ -1,0 +1,5 @@
+{
+  "name": "AI Policy",
+  "description": "Enforce AI contribution policy: detect AI-assistant trailers, block coding-agent DCO sign-offs, and label AI-assisted PRs.",
+  "iconName": "octicon robot"
+}
