@@ -31,7 +31,7 @@ Tell us what happens instead, if possible also add a screenshot
 
 **Database:** MySQL/Maria/SQLite/PostgreSQL
 
-**PHP version:** 8.2/8.3/8.4
+**PHP version:** 8.5/8.4/8.3
 
 **Nextcloud version:** (see Nextcloud admin page)
 
