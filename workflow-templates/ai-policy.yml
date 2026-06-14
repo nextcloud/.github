@@ -76,10 +76,10 @@ jobs:
         run: |
           set -euo pipefail
           AI_ASSISTED=false
-          if grep -qiE '^(AI-assistant|Assisted-by):' /tmp/pr_commits.txt; then
+          if grep -qiE '^(AI-assistant|Assisted-by|AI-Assisted-By):' /tmp/pr_commits.txt; then
             AI_ASSISTED=true
-            echo "Found AI-assistant/Assisted-by trailer(s):"
-            grep -iE '^(AI-assistant|Assisted-by):' /tmp/pr_commits.txt
+            echo "Found AI-assistant/Assisted-by/AI-Assisted-By trailer(s):"
+            grep -iE '^(AI-assistant|Assisted-by|AI-Assisted-By):' /tmp/pr_commits.txt
           fi
           echo "ai_assisted=${AI_ASSISTED}" >> "$GITHUB_OUTPUT"
 
