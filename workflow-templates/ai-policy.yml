@@ -139,9 +139,9 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.COMMAND_BOT_PAT }}
         run: |
-          gh pr edit "${{ github.event.pull_request.number }}" \
-            --repo "${{ github.repository }}" \
-            --add-label "AI assisted"
+          gh api "repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/labels" \
+            --method POST \
+            -f "labels[]=AI assisted"
           echo "Added 'AI assisted' label to PR #${{ github.event.pull_request.number }}"
 
       - name: Fail on coding-agent Signed-off-by
