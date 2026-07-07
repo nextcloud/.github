@@ -1,0 +1,5 @@
+{
+  "name": "Release Relay",
+  "description": "Dispatches the repository information and tag of a release to a relay for further release processing",
+  "iconName": "octicon robot"
+}
