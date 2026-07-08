@@ -69,7 +69,7 @@ jobs:
             if [ -f "$workflow" ]; then
               filename=$(basename "$workflow")
               target_file="./target/.github/workflows/$filename"
-              
+
               # Only copy if the file exists in the target repository
               if [ -f "$target_file" ]; then
                 echo "Updating existing workflow: $filename"
