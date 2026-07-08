@@ -18,7 +18,7 @@ There is a GitHub action for that as well. Simply install
 https://github.com/nextcloud/.github/blob/master/workflow-templates/sync-workflow-templates.yml
 into your repository and a cron job will update the workflows from the template every sunday morning.
 
-> ![NOTE]
+> [!NOTE]
 > GitHub does not allow pull request that touch workflows to be auto-approved and auto-merged to improve security.
 > But it's at least much easier to be aware of the updates and you just need to approve and merge the PRs.
 
