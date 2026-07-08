@@ -12,18 +12,29 @@ https://github.com/nextcloud/viewer/actions/new
 
 ![image](https://raw.githubusercontent.com/nextcloud/.github/master/screenshots/choose-a-workflow.png)
 
-## Auto-update repositories
+## Auto-update in a repository
 
-For each template, you can propagate them on all the repos that use it.
-1. Go into https://github.com/nextcloud/.github/actions/workflows/dispatch-workflow.yml
-2. Enter the name of the workflow you want to dispatch
-3. Enter the page you want to execute (100 are done per page, so check the [number of repositories](https://github.com/orgs/nextcloud/repositories), current is 260 so run for page: 1, 2 and 3)
+There is a GitHub action for that as well. Simply install
+https://github.com/nextcloud/.github/blob/master/workflow-templates/sync-workflow-templates.yml
+into your repository and a cron job will update the workflows from the template every sunday morning.
 
-  ![image](https://raw.githubusercontent.com/nextcloud/.github/master/screenshots/dispatch-a-workflow.png)
+> [!NOTE]
+> GitHub does not allow pull request that touch workflows to be auto-approved and auto-merged to improve security.
+> But it's at least much easier to be aware of the updates and you just need to approve and merge the PRs.
 
-4. Wait for the actions to finish and see the checkout the pull requests
+## Patching workflows
 
-## Update workflows with a script
+It's also possible to customise workflows by putting a `workflow.yml.patch` file right next to it.
+The patch files should be one per workflow and made from the repository root:
+
+Example:
+1. Modify `.github/workflows/phpunit-mariadb.yml`
+2. Save patch `git diff .github/workflows/phpunit-mariadb.yml > .github/workflows/phpunit-mariadb.yml.patch`
+
+The `sync-workflow-templates.yml` action also supports this and reapplies the patches if possible.
+If there was an error it will be outlined in the PR description.
+
+## Update workflows manually
 
 You can also run the following shell script on your machine to update all workflows of an app. It should be run inside the cloned repository of an app and requires rsync to be installed.
 
@@ -50,6 +61,15 @@ rsync -vr \
     --exclude='*' \
     "$temp/workflow-templates/" \
     ./.github/workflows/
+
+# Reapply patches
+for patch in ./.github/workflows/*.yml.patch; do
+    [ ! -f "$patch" ] && continue
+    echo "🩹 Applying $patch"
+    if ! patch -p1 < "$patch"; then
+        echo "❌ Failed to apply $patch, please resolve manually"
+    fi
+done
 
 # Cleanup
 rm -rf "$temp"
