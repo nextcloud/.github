@@ -3,14 +3,14 @@ SPDX-FileCopyrightText: 2021-2024 Nextcloud GmbH and Nextcloud contributors
 SPDX-License-Identifier: MIT
 -->
 
-# Security Policy 
+# Security Policy
 
 ## 💡 TLDR: Report security issues at [hackerone.com/nextcloud](https://hackerone.com/nextcloud)
 
 ### Found a security bug in Nextcloud? Let's get it fixed!
 
-If you believe you have found an issue that meets our 
-[definition of a security vulnerability](https://nextcloud.com/security/threat-model), 
+If you believe you have found an issue that meets our
+[definition of a security vulnerability](https://nextcloud.com/security/threat-model),
 we encourage you to let us know right away. Please use the reporting process described below.
 
 | If you are a...         | See section...                                                                        |
@@ -36,8 +36,8 @@ Your report should include:
 
 If you require encrypted communication, please request it in your initial message.
 
-> **Note:** This process is for confidential reporting of software vulnerabilities only.  
-> For general support or configuration help, see 
+> **Note:** This process is for confidential reporting of software vulnerabilities only.
+> For general support or configuration help, see
 > [Nextcloud Support](https://nextcloud.com/support/).
 
 ## What to Expect After Reporting
@@ -50,42 +50,42 @@ A member of our security team will:
 - Follow up with any questions
 - Coordinate the fix and public disclosure
 
-We apply, test, and release fixes for all relevant, supported stable branches in the next 
-security update. Vulnerabilities are publicly announced after the fix is released. As a thank 
+We apply, test, and release fixes for all relevant, supported stable branches in the next
+security update. Vulnerabilities are publicly announced after the fix is released. As a thank
 you, we will add your name to our [Hall of Fame](https://hackerone.com/nextcloud/thanks).
 
-If your report concerns an app not maintained by Nextcloud (e.g., community-maintained apps 
-hosted by Nextcloud or hosted elsewhere), our security team will coordinate with the current 
+If your report concerns an app not maintained by Nextcloud (e.g., community-maintained apps
+hosted by Nextcloud or hosted elsewhere), our security team will coordinate with the current
 maintainer to help resolve the issue in a similar fashion.
 
 ## Bug Bounties
 
-If you are interested in a bug bounty, please note that complete, detailed reports can 
-contribute to higher bounty awards. Details on past bounties are available at 
+If you are interested in a bug bounty, please note that complete, detailed reports can
+contribute to higher bounty awards. Details on past bounties are available at
 [HackerOne](https://hackerone.com/nextcloud).
 
 ## Security Advisories
 
-Published advisories for Nextcloud Server, Clients, and Apps are available at the 
-[Nextcloud Security Advisories](https://github.com/nextcloud/security-advisories/security/advisories) 
+Published advisories for Nextcloud Server, Clients, and Apps are available at the
+[Nextcloud Security Advisories](https://github.com/nextcloud/security-advisories/security/advisories)
 page.
 
 ## Supported Versions
 
-Each major release of Nextcloud Server receives security updates for one year from its 
-initial release date. The Nextcloud project typically supports at least the two most recent 
+Each major release of Nextcloud Server receives security updates for one year from its
+initial release date. The Nextcloud project typically supports at least the two most recent
 major releases.
 
 To stay protected:
 - Ensure your Nextcloud Server is always running a supported major release
-- Promptly apply all maintenance releases (these include critical security and functionality 
+- Promptly apply all maintenance releases (these include critical security and functionality
   bug fixes)
-- Monitor the end-of-life (EOL) date for your major release (after this date, no further 
-  maintenance releases will be published. Upgrading to a newer major release is strongly 
+- Monitor the end-of-life (EOL) date for your major release (after this date, no further
+  maintenance releases will be published. Upgrading to a newer major release is strongly
   recommended.)
 
-See the 
-[Maintenance and Release Schedule](https://github.com/nextcloud/server/wiki/Maintenance-and-Release-Schedule) 
+See the
+[Maintenance and Release Schedule](https://github.com/nextcloud/server/wiki/Maintenance-and-Release-Schedule)
 for details.
 
 ---
