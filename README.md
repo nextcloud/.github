@@ -5,7 +5,7 @@ SPDX-License-Identifier: MIT
 
 # This repository contains Nextcloud's workflow templates
 
-## Setup a new template on your repository
+## Set up a new template on your repository
 
 When creating a new workflow on your repository, you will see templates originating from here.
 https://github.com/nextcloud/viewer/actions/new
@@ -18,9 +18,12 @@ There is a GitHub action for that as well. Simply install
 https://github.com/nextcloud/.github/blob/master/workflow-templates/sync-workflow-templates.yml
 into your repository and a cron job will update the workflows from the template every sunday morning.
 
-> [!NOTE]
+> [!IMPORTANT]
 > GitHub does not allow pull request that touch workflows to be auto-approved and auto-merged to improve security.
 > But it's at least much easier to be aware of the updates and you just need to approve and merge the PRs.
+
+> [!WARNING]
+> Do not forget to check the diff for conflicts and missing patches before approving, especially when updating the workflows on stable branches!
 
 ## Patching workflows
 
@@ -38,7 +41,8 @@ If there was an error it will be outlined in the PR description.
 
 You can also run the following shell script on your machine to update all workflows of an app. It should be run inside the cloned repository of an app and requires rsync to be installed.
 
-⚠️ Do not forget to check the diff for unwanted changes before committing, especially when updating the workflows on stable branches!
+> [!WARNING]
+> Do not forget to check the diff for unwanted changes before committing, especially when updating the workflows on stable branches!
 
 ```sh
 #!/bin/sh
