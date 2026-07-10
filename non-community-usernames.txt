@@ -31,6 +31,7 @@ nextcloud-android-bot
 nextcloud-bot
 nextcloud-command
 nfebe
+odzhychko
 Pytal
 raimund-schluessler
 rakekniven
