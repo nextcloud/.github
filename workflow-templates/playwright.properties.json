@@ -1,0 +1,10 @@
+{
+	"name": "Playwright testing",
+	"description": "Default playwright workflow. It will setup composer if required, setup node, install dependencies, run playwright and upload artifacts. Feel free to adjust the amount of containers depending on how much tests you have.",
+	"iconName": "playwright",
+	"filePatterns": [
+		"^playwright.config.js$",
+		"^playwright.config.mjs$",
+		"^playwright.config.ts$"
+	]
+}
