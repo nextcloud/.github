@@ -71,11 +71,14 @@ jobs:
       # Init path depending on which command is run
       - name: Init path
         id: git-path
+        env:
+          ARG1: ${{ steps.command.outputs.arg1 }}
+          ARG2: ${{ steps.command.outputs.arg2 }}
         run: |
-          if ${{ startsWith(steps.command.outputs.arg1, '/') }}; then
-            echo "path=${{steps.command.outputs.arg1}}" >> $GITHUB_OUTPUT
+          if [[ "$ARG1" == /* ]]; then
+            printf 'path=%s\n' "$ARG1" >> "$GITHUB_OUTPUT"
           else
-            echo "path=${{steps.command.outputs.arg2}}" >> $GITHUB_OUTPUT
+            printf 'path=%s\n' "$ARG2" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Init branch
