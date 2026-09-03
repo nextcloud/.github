@@ -145,11 +145,19 @@ jobs:
         if: ${{ steps.node_versions.outputs.nodeVersion }}
         run: npm i -g 'npm@${{ steps.node_versions.outputs.npmVersion }}'
 
-      - name: Rebase to ${{ needs.init.outputs.base_ref }}
+      - name: Rebase to base branch
         if: ${{ contains(needs.init.outputs.arg1, 'rebase') }}
+        env:
+          BASE_REF: ${{ needs.init.outputs.base_ref }}
         run: |
-          git fetch origin '${{ needs.init.outputs.base_ref }}:${{ needs.init.outputs.base_ref }}'
-          git rebase 'origin/${{ needs.init.outputs.base_ref }}'
+
+          if [[ ! "$BASE_REF" =~ ^[A-Za-z0-9._/-]+$ ]]; then
+            echo "::error::Invalid base branch: $BASE_REF"
+            exit 1
+          fi
+
+          git fetch origin "$BASE_REF:$BASE_REF"
+          git rebase "origin/$BASE_REF"
 
       - name: Install dependencies
         env:
@@ -186,7 +194,16 @@ jobs:
 
       - name: Push normally
         if: ${{ !contains(needs.init.outputs.arg1, 'rebase') && !contains(needs.init.outputs.arg1, 'amend') }}
-        run: git push origin '${{ needs.init.outputs.head_ref }}'
+        env:
+          HEAD_REF: ${{ needs.init.outputs.head_ref }}
+        run: |
+
+          if [[ ! "$HEAD_REF" =~ ^[A-Za-z0-9._/-]+$ ]]; then
+            echo "::error::Invalid head branch"
+            exit 1
+          fi
+
+          git push origin "$HEAD_REF"
 
       - name: Force push
         if: ${{ contains(needs.init.outputs.arg1, 'rebase') || contains(needs.init.outputs.arg1, 'amend') }}
