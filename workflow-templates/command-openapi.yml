@@ -174,20 +174,26 @@ jobs:
 
       - name: Commit default
         if: ${{ !contains(needs.init.outputs.arg1, 'fixup') && !contains(needs.init.outputs.arg1, 'amend') }}
+        env:
+          GIT_PATH: ${{ needs.init.outputs.git_path }}
         run: |
-          git add '${{ github.workspace }}${{ needs.init.outputs.git_path }}'
+          git add "${GITHUB_WORKSPACE}${GIT_PATH}"
           git commit --signoff -m 'fix(openapi): Regenerate OpenAPI assets'
 
       - name: Commit fixup
         if: ${{ contains(needs.init.outputs.arg1, 'fixup') }}
+        env:
+          GIT_PATH: ${{ needs.init.outputs.git_path }}
         run: |
-          git add '${{ github.workspace }}${{ needs.init.outputs.git_path }}'
+          git add "${GITHUB_WORKSPACE}${GIT_PATH}"
           git commit --fixup=HEAD --signoff
 
       - name: Commit amend
+        env:
+          GIT_PATH: ${{ needs.init.outputs.git_path }}
         if: ${{ contains(needs.init.outputs.arg1, 'amend') }}
         run: |
-          git add '${{ github.workspace }}${{ needs.init.outputs.git_path }}'
+          git add "${GITHUB_WORKSPACE}${GIT_PATH}"
           git commit --amend --no-edit --signoff
           # Remove any [skip ci] from the amended commit
           git commit --amend -m "$(git log -1 --format='%B' | sed '/\[skip ci\]/d')"
@@ -207,7 +213,10 @@ jobs:
 
       - name: Force push
         if: ${{ contains(needs.init.outputs.arg1, 'rebase') || contains(needs.init.outputs.arg1, 'amend') }}
-        run: git push --force-with-lease origin '${{ needs.init.outputs.head_ref }}'
+        env:
+          HEAD_REF: ${{ needs.init.outputs.head_ref }}
+        run: |
+          git push --force-with-lease origin "$HEAD_REF"
 
       - name: Add reaction on failure
         uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 # v5.0.0
