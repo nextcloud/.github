@@ -37,7 +37,7 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: node-${{ github.head_ref || github.run_id }}
+  group: playwright-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 
 jobs:
