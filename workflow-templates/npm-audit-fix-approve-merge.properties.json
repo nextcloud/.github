@@ -1,0 +1,11 @@
+{
+  "name": "Auto approve and merge of npm audit fix",
+  "description": "Auto approve and merge of npm audit fix pull requests",
+  "iconName": "octicon shield-check",
+  "categories": [
+    "JavaScript"
+  ],
+  "filePatterns": [
+    "^.github/workflows/npm-audit-fix.yml$"
+  ]
+}
