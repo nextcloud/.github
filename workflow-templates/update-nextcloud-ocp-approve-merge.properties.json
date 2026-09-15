@@ -6,6 +6,7 @@
     "PHP"
   ],
   "filePatterns": [
-    "^composer.json$"
+    "^.github/workflows/update-nextcloud-ocp.yml$",
+    "^.github/workflows/update-nextcloud-ocp-matrix.yml$"
   ]
 }
