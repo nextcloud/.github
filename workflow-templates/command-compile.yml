@@ -144,7 +144,7 @@ jobs:
             while [ -d .git/rebase-merge ] || [ -d .git/rebase-apply ]; do
               echo "Handling rebase conflict..."
 
-              # Remove and checkout /dist and /js folders from the base branch
+              # Remove and checkout /dist, /js, /css folders from the base branch
               if [ -d "dist" ]; then
                 rm -rf dist
                 git checkout "origin/${BASE_REF}" -- dist/ 2>/dev/null || echo "No dist folder in base branch"
@@ -152,6 +152,10 @@ jobs:
               if [ -d "js" ]; then
                 rm -rf js
                 git checkout "origin/${BASE_REF}" -- js/ 2>/dev/null || echo "No js folder in base branch"
+              fi
+              if [ -d "css" ]; then
+                rm -rf css
+                git checkout "origin/${BASE_REF}" -- css/ 2>/dev/null || echo "No css folder in base branch"
               fi
 
               # Stage all changes
