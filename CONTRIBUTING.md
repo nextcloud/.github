@@ -29,7 +29,7 @@ Please read the [Developer Manuals][devmanual] to learn how to create your first
 
 Nextcloud allows contributions made with the help of AI tools. You are the author of everything you submit - AI assistance does not change that responsibility.
 
-* **Disclosure:** Declare AI tool use in the PR description and add an `Assisted-by: AGENT_NAME:MODEL_VERSION` git trailer to each affected commit.
+* **Disclosure:** Declare AI tool use in the PR description and add an `AI-Assisted-By: MODEL (REASONING_EFFORT)` git trailer to each affected commit, for example `AI-Assisted-By: Claude Opus 4.5 (medium)`. The agent does not need to be named.
 
 * **Accountability:** You must be able to explain, defend, and modify every line you submit. If a reviewer asks why something works a certain way, "the AI wrote it" is not an answer.
 
