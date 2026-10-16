@@ -73,15 +73,15 @@ jobs:
           # shellcheck disable=SC2016
           echo 'AGENT_NAMES=GitHub Copilot|Claude( [A-Za-z0-9. -]+)?|Devin( AI)?|aider( \(.*\))?|OpenAI Codex|Cursor( AI)?|Windsurf|Amazon Q|CodeWhisperer|Gemini Code Assist|OpenHands|SWE-agent|AutoCodeRover|Tabnine' >> "$GITHUB_ENV"
 
-      - name: Check for AI-assistant / Assisted-by trailers
+      - name: Check for AI-assistant / AI-Assisted-By trailers
         id: ai_trailers
         run: |
           set -euo pipefail
           AI_ASSISTED=false
-          if grep -qiE '^(AI-assistant|Assisted-by|AI-Assisted-By):' /tmp/pr_commits.txt; then
+          if grep -qiE '^(AI-assistant|AI-Assisted-By):' /tmp/pr_commits.txt; then
             AI_ASSISTED=true
-            echo "Found AI-assistant/Assisted-by/AI-Assisted-By trailer(s):"
-            grep -iE '^(AI-assistant|Assisted-by|AI-Assisted-By):' /tmp/pr_commits.txt
+            echo "Found AI-assistant/AI-Assisted-By trailer(s):"
+            grep -iE '^(AI-assistant|AI-Assisted-By):' /tmp/pr_commits.txt
           fi
           echo "ai_assisted=${AI_ASSISTED}" >> "$GITHUB_OUTPUT"
 
@@ -167,9 +167,9 @@ jobs:
           echo "The 'Signed-off-by' trailer represents the Developer Certificate of Origin (DCO)"
           echo "and must only be attested by a human contributor."
           echo "Please amend the affected commit(s) to remove the coding-agent sign-off"
-          echo "and replace it with an 'Assisted-by' trailer, for example:"
+          echo "and replace it with an 'AI-Assisted-By' trailer, for example:"
           echo ""
-          echo "  Assisted-by: Claude Code:claude-sonnet-4-6"
+          echo "  AI-Assisted-By: Claude Opus 4.5 (medium)"
           echo ""
           echo "References:"
           echo "  • AGENTS.md (this repository)"

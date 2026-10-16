@@ -17,23 +17,23 @@ This policy complements the existing [Contribution Guidelines](CONTRIBUTING.md).
 
 Every pull request containing AI-assisted code, documentation, or tests must declare this in the PR description. PRs found to have undisclosed AI use might be closed.
 
-For full traceability at the commit level, each commit containing AI-assisted content must include an `Assisted-by:` git trailer:
+For full traceability at the commit level, each commit containing AI-assisted content must include an `AI-Assisted-By:` git trailer:
 
 ```
-Assisted-by: AGENT_NAME:MODEL_VERSION
+AI-Assisted-By: MODEL (REASONING_EFFORT)
 ```
 
-The agent name and model version identify the AI tool. Basic development tools such as git, compilers, editors, and static analyzers are not listed - these are standard parts of any development workflow regardless of AI involvement.
+Name the model and, if the tool lets you choose one, the reasoning effort. The agent or editor integration that ran the model does not need to be named. Tools without AI that generated or changed code, such as code generators or codemods, can be named with `Assisted-by:`. Commits made before this change may use `Assisted-by:` for AI tools and don't need to be rewritten. Basic development tools such as git, compilers, editors, and static analyzers are not listed - these are standard parts of any development workflow regardless of AI involvement.
 
 The PR description disclosure explains how AI was used; the commit trailer ensures that provenance is permanently recorded in version history and available to future contributors, auditors, and tooling.
 
 Examples:
 
 ```
-Assisted-by: Devstral:devstral-small-2507
-Assisted-by: ClaudeCode:claude-sonnet-4-6
-Assisted-by: Qwen:qwen3-coder-32b
-Assisted-by: Copilot:gpt-4o
+AI-Assisted-By: Devstral Small 1.1
+AI-Assisted-By: Claude Opus 4.5 (medium)
+AI-Assisted-By: Qwen3-Coder-30B-A3B-Instruct
+AI-Assisted-By: GPT-4o
 ```
 
 ### Author Accountability
