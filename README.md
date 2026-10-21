@@ -34,8 +34,8 @@ Example:
 1. Modify `.github/workflows/phpunit-mariadb.yml`
 2. Save patch `git diff .github/workflows/phpunit-mariadb.yml > .github/workflows/phpunit-mariadb.yml.patch`
 
-The `sync-workflow-templates.yml` action also supports this and reapplies the patches if possible.
-If there was an error it will be outlined in the PR description.
+The `sync-workflow-templates.yml` action and the organization dispatch workflows (`dispatch-workflow.yml`, `dispatch-workflow-repo.yml` and `dispatch-workflow-org.yml`) also support this and reapply the patches if possible.
+If there was an error it will be outlined in the PR description and the PR is opened as a draft.
 
 ## Update workflows manually
 

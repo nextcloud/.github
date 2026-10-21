@@ -93,14 +93,43 @@ jobs:
 
       - name: Copy workflow # zizmor: ignore[template-injection]
         if: steps.check_file_existence.outputs.files_exists == 'true'
-        run: cp './source/workflow-templates/${{ github.event.inputs.name }}' ./target/.github/workflows
+        run: |
+          echo 'SUMMARY<<EOF' >> $GITHUB_ENV
+          draft_only=0
+          filename='${{ github.event.inputs.name }}'
+          target_file="./target/.github/workflows/$filename"
+          echo "- 🆙 Updated $filename" >> $GITHUB_ENV
+          cp "./source/workflow-templates/$filename" "$target_file"
+
+          # Apply patch if one exists
+          if [ -f "$target_file.patch" ]; then
+            echo "🩹 Applying patch"
+            cd ./target
+            set +e
+            patch -p1 < ".github/workflows/$filename.patch"
+            patch_worked=$?
+            set -e
+            cd -
+            if [[ "$patch_worked" == "0" ]]; then
+              echo "  - Patch applied" >> $GITHUB_ENV
+            else
+              echo "  - [ ] ❌ Patch failed" >> $GITHUB_ENV
+              draft_only=1
+            fi
+          fi
+          echo 'EOF' >> $GITHUB_ENV
+          echo "DRAFT_ONLY=${draft_only}" >> $GITHUB_ENV
 
       - name: Create Pull Request
         if: steps.check_file_existence.outputs.files_exists == 'true'
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
         with:
-          body: 'Automated update of the ${{ github.event.inputs.name }} workflow from https://github.com/${{ github.repository }} triggered by ${{ github.actor }}'
+          body: |
+            Automated update of the ${{ github.event.inputs.name }} workflow from https://github.com/${{ github.repository }} triggered by ${{ github.actor }}
+            ${{ env.SUMMARY }}
           branch: 'feat/workflow-auto-update-${{ github.event.inputs.name }}'
+          draft: ${{ env.DRAFT_ONLY == 1 }}
+          add-paths: .github/workflows/*.yml
           commit-message: 'ci: update ${{ github.event.inputs.name }} workflow from template'
           committer: Nextcloud bot <bot@nextcloud.com>
           author: Nextcloud bot <bot@nextcloud.com>
