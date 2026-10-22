@@ -65,6 +65,8 @@ jobs:
 
       - name: Copy all workflow templates
         run: |
+          echo 'SUMMARY<<EOF' >> $GITHUB_ENV
+          draft_only=0
           for workflow in ./source/workflow-templates/*.yml; do
             if [ -f "$workflow" ]; then
               filename=$(basename "$workflow")
@@ -73,18 +75,42 @@ jobs:
               # Only copy if the file exists in the target repository
               if [ -f "$target_file" ]; then
                 echo "Updating existing workflow: $filename"
+                echo "- 🆙 Updated $filename" >> $GITHUB_ENV
                 cp "$workflow" "$target_file"
+
+                # Apply patch if one exists
+                if [ -f "$target_file.patch" ]; then
+                  echo "🩹 Applying patch"
+                  cd ./target
+                  set +e
+                  patch -p1 < ".github/workflows/$filename.patch"
+                  patch_worked=$?
+                  set -e
+                  cd -
+                  if [[ "$patch_worked" == "0" ]]; then
+                    echo "  - Patch applied" >> $GITHUB_ENV
+                  else
+                    echo "  - [ ] ❌ Patch failed" >> $GITHUB_ENV
+                    draft_only=1
+                  fi
+                fi
               else
                 echo "Skipping $filename (does not exist in target repository)"
               fi
             fi
           done
+          echo 'EOF' >> $GITHUB_ENV
+          echo "DRAFT_ONLY=${draft_only}" >> $GITHUB_ENV
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
         with:
-          body: 'Automated update of all workflow templates from https://github.com/${{ github.repository }} triggered by ${{ github.actor }}'
+          body: |
+            Automated update of all workflow templates from https://github.com/${{ github.repository }} triggered by ${{ github.actor }}
+            ${{ env.SUMMARY }}
           branch: 'feat/workflow-auto-update-all-templates-${{ github.event.inputs.branch }}'
+          draft: ${{ env.DRAFT_ONLY == 1 }}
+          add-paths: .github/workflows/*.yml
           commit-message: 'ci: update all workflow templates from organization template repository'
           committer: Nextcloud bot <bot@nextcloud.com>
           author: Nextcloud bot <bot@nextcloud.com>
