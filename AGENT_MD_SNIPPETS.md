@@ -12,7 +12,7 @@ All contributions generated or assisted by this agent must fully comply with:
 
 ### What this agent must always do
 
-- Add an `Assisted-by: AGENT_NAME:MODEL_VERSION` git trailer to every commit containing AI-assisted content.
+- Add an `Assisted-by: MODEL_VERSION (REASONING_EFFORT)` git trailer to every commit containing AI-assisted content, for example `Assisted-by: claude-opus-4-5 (medium)`. Ask the contributor for the reasoning effort if you do not know it, and leave it out only if the tool has no such setting. Leave out your own agent name unless the contributor asks for it, then write `AGENT_NAME:MODEL_VERSION (REASONING_EFFORT)`.
 - Ensure every pull request includes a disclosure of AI tool use in the PR description.
 - Produce focused, scoped pull requests that address exactly one concern. Do not touch unrelated files or introduce incidental refactors.
 - Verify all dependencies against actual package registries before suggesting them. Do not use hallucinated or unverified package names.
