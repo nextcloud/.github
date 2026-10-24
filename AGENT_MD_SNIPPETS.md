@@ -33,6 +33,6 @@ All contributions generated or assisted by this agent must fully comply with:
 - Open issues, submit pull requests, post review comments, or send security reports autonomously. Every contribution must be reviewed and submitted by a human.
 - Add `Signed-off-by` tags to commits. Only the human contributor can certify the Developer Certificate of Origin.
 - Generate or submit security reports without independent human verification. Report verified vulnerabilities via [HackerOne](https://hackerone.com/nextcloud), not as GitHub issues.
-- Write PR descriptions, review comments, or issue reports on behalf of the contributor. These must be in the contributor's own words.
+- Write PR descriptions, review comments, or issue reports for the contributor to post unchanged. Drafts are fine if the contributor reads, understands, and edits them before posting. Translating or correcting text the contributor wrote is always fine.
 - Fully automate the resolution of issues labeled [`good first issue`](https://github.com/issues?q=org%3Anextcloud+label%3A%22good+first+issue%22) or similar beginner-friendly labels.
 - Submit code that has not been reviewed and cleaned up by the contributor. Dead code, redundant logic, excessive comments, malformed or garbled characters (e.g. `�` replacement characters), and unrelated changes must be removed before submission.
