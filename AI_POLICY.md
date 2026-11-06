@@ -42,9 +42,11 @@ The contributor is the legal and moral author of every line they submit. If a re
 
 ### Human-Written Communication
 
-Issues, PR descriptions, and review comments must be in the contributor's own words. Translation assistance and grammar/spelling help are acceptable exceptions and do not need to be disclosed - the intent of this rule is to ensure that the ideas, reasoning, and decisions in community communication come from the contributor.
+The ideas, reasoning, and decisions in issues, PR descriptions, and review comments must come from the contributor. AI tools may help to draft or phrase these texts if the contributor has read, understood, and edited the result before publishing it, and discloses that AI helped. Translation and grammar/spelling help do not need to be disclosed. Contributors who write in another language may add a short note that the text was translated.
 
 This requirement extends through the entire review process. Contributors must respond to reviewer questions and implement requested changes themselves. Passing maintainer feedback into an AI and posting whatever comes out is not an acceptable substitute for genuine engagement. If a contributor cannot explain or implement a requested change because they do not understand their own submission, the PR will be closed.
+
+A PR description should be understandable for both the author and the maintainers. If it is not, maintainers ask for a rewrite, for example by requesting changes or converting the pull request to a draft. If the contributor does not reply within a month, the pull request may be closed.
 
 ### Security and Dependency Scrutiny
 
@@ -96,4 +98,4 @@ AI tools must not be used to fully automate the resolution of issues labeled [`g
 
 ## Scope and Updates
 
-This policy applies to all contributions to repositories and apps under the Nextcloud GitHub organization, by all contributors. It will be reviewed and updated as AI tooling, open-source best practices, and applicable law evolve. Suggested changes are welcome via pull requests.
+This policy applies to all contributions to repositories and apps under the Nextcloud GitHub organization, by all contributors. It will be reviewed and updated as AI tooling, open-source best practices, and applicable law evolve. Pull requests opened before a change to this policy are asked to adapt to it rather than closed. Suggested changes are welcome via pull requests.
