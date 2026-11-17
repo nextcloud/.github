@@ -20,20 +20,23 @@ Every pull request containing AI-assisted code, documentation, or tests must dec
 For full traceability at the commit level, each commit containing AI-assisted content must include an `Assisted-by:` git trailer:
 
 ```
-Assisted-by: AGENT_NAME:MODEL_VERSION
+Assisted-by: MODEL_VERSION (REASONING_EFFORT)
+Assisted-by: AGENT_NAME:MODEL_VERSION (REASONING_EFFORT)
 ```
 
-The agent name and model version identify the AI tool. Basic development tools such as git, compilers, editors, and static analyzers are not listed - these are standard parts of any development workflow regardless of AI involvement.
+The model version identifies the AI tool; for an open-weight model you run yourself, it includes the quantization. Add the reasoning effort whenever the tool lets you choose one, because the same model gives different results depending on it; leave it out only if the tool has no such setting. The agent name, meaning the tool or harness that ran the model, is optional. Existing commits with `AGENT_NAME:MODEL_VERSION` don't need to be rewritten. `Assisted-by:` covers any kind of help. If an LLM generated content, you can write `AI-Assisted-By:` instead to say so explicitly; the AI Policy check recognises both. Basic development tools such as git, compilers, editors, and static analyzers are not listed - these are standard parts of any development workflow regardless of AI involvement.
 
 The PR description disclosure explains how AI was used; the commit trailer ensures that provenance is permanently recorded in version history and available to future contributors, auditors, and tooling.
 
 Examples:
 
 ```
-Assisted-by: Devstral:devstral-small-2507
-Assisted-by: ClaudeCode:claude-sonnet-4-6
-Assisted-by: Qwen:qwen3-coder-32b
+Assisted-by: claude-opus-4-5 (medium)
+Assisted-by: ClaudeCode:claude-opus-4-5 (high)
 Assisted-by: Copilot:gpt-4o
+Assisted-by: Devstral:devstral-small-2507
+Assisted-by: qwen3-coder-30b-a3b-instruct-q4_k_m
+AI-Assisted-By: claude-opus-4-5 (low)
 ```
 
 ### Author Accountability
