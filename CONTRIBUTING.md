@@ -60,7 +60,9 @@ If you can certify it, then just add a line to every git commit message:
   Signed-off-by: Random J Developer <random@developer.example.org>
 ````
 
-Use your real name (sorry, no pseudonyms or anonymous contributions).
+Use a known identity (sorry, no anonymous contributions). Many contributors
+use their real name, but a pseudonym you use consistently, such as your GitHub
+username, is fine, and so is your [GitHub no-reply address][noreply].
 If you set your `user.name` and `user.email` git configs, you can sign your
 commit automatically with `git commit -s`. You can also use git [aliases](https://git-scm.com/book/tr/v2/Git-Basics-Git-Aliases)
 like `git config --global alias.ci 'commit -s'`. Now you can commit with
@@ -74,6 +76,7 @@ In case you are not sure how to add or update the license header correctly pleas
 [dcofile]: https://github.com/nextcloud/server/blob/master/contribute/developer-certificate-of-origin
 [applyalicense]: https://github.com/nextcloud/server/blob/master/contribute/HowToApplyALicense.md
 [aipolicy]: https://github.com/nextcloud/.github/blob/master/AI_POLICY.md
+[noreply]: https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address
 
 ## Translations
 Please submit translations via [Transifex][transifex].
