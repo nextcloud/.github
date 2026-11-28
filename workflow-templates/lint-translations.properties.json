@@ -1,0 +1,14 @@
+{
+    "name": "Linting translation source strings",
+    "description": "Checks the source strings a pull request adds against the translation guidelines of the developer manual",
+    "iconName": "octicon globe",
+    "categories": [
+        "JavaScript",
+        "PHP",
+        "TypeScript",
+        "Vue"
+    ],
+    "filePatterns": [
+        "^\\.tx/config$"
+    ]
+}
